@@ -277,48 +277,6 @@ const Home = () => {
                 현지 맞춤형 지원을 제공합니다.
               </p>
             </div>
-
-            <div
-              ref={(el) => (aboutCardsRef.current[3] = el)}
-              className="home-about-card fade-up"
-            >
-              <div className="home-about-card-icon">
-                <Users size={32} strokeWidth={1.5} />
-              </div>
-              <h3 className="home-about-card-title">전담 팀 배정</h3>
-              <p className="home-about-card-description">
-                각 지역별 전담 CPA가 배정되어 일관성 있고 지속적인 파트너십을
-                통해 장기적인 성장을 지원합니다.
-              </p>
-            </div>
-
-            <div
-              ref={(el) => (aboutCardsRef.current[4] = el)}
-              className="home-about-card fade-up"
-            >
-              <div className="home-about-card-icon">
-                <Award size={32} strokeWidth={1.5} />
-              </div>
-              <h3 className="home-about-card-title">검증된 실적</h3>
-              <p className="home-about-card-description">
-                500개 이상의 한국 기업이 저희와 함께 성공적으로 미국 시장에
-                진출했으며, 98%의 고객 만족도를 기록하고 있습니다.
-              </p>
-            </div>
-
-            <div
-              ref={(el) => (aboutCardsRef.current[5] = el)}
-              className="home-about-card fade-up"
-            >
-              <div className="home-about-card-icon">
-                <HeadphonesIcon size={32} strokeWidth={1.5} />
-              </div>
-              <h3 className="home-about-card-title">24/7 지원</h3>
-              <p className="home-about-card-description">
-                한국과 미국의 시차를 고려한 유연한 커뮤니케이션 체계로 언제든지
-                신속한 대응이 가능합니다.
-              </p>
-            </div>
           </div>
 
           <div ref={ctaSectionRef} className="home-about-cta scale-in">
@@ -339,8 +297,8 @@ const Home = () => {
           <div ref={servicesHeaderRef} className="home-services-header fade-up">
             <span className="home-section-tag">Services</span>
             <h2 className="home-section-title">
-              미국 비즈니스의 모든 것,
-              <span className="home-section-highlight">원스톱으로 해결</span>
+              완벽한 서비스로
+              <span className="home-section-highlight">함께하는 미국 진출</span>
             </h2>
             <p className="home-section-description">
               회사 설립부터 세무 관리까지, 각 분야의 전문가가 통합 솔루션을
@@ -543,7 +501,7 @@ const Home = () => {
           <div ref={processHeaderRef} className="home-process-header fade-up">
             <span className="home-section-tag">Process</span>
             <h2 className="home-section-title">
-              체계적인 4단계 프로세스로
+              체계적인 4단계 프로세스
               <span className="home-section-highlight">
                 확실한 성과를 보장합니다
               </span>
