@@ -1,12 +1,5 @@
 import React, { useEffect, useRef } from "react";
-import {
-  Clock,
-  Package,
-  Globe,
-  Users,
-  Award,
-  HeadphonesIcon,
-} from "lucide-react";
+import { Clock, Package, Globe, MapPin, Check } from "lucide-react";
 import "./Home.css";
 
 const Home = () => {
@@ -22,6 +15,9 @@ const Home = () => {
   const servicesCardsRef = useRef([]);
   const processHeaderRef = useRef(null);
   const processStepsRef = useRef([]);
+  const locationHeaderRef = useRef(null);
+  const locationMapRef = useRef(null);
+  const locationInfoRef = useRef(null);
   const casesHeaderRef = useRef(null);
   const casesCardsRef = useRef([]);
   const casesCtaRef = useRef(null);
@@ -110,6 +106,23 @@ const Home = () => {
         observer.observe(step);
       }
     });
+
+    // Location 섹션 헤더 관찰
+    if (locationHeaderRef.current) {
+      observer.observe(locationHeaderRef.current);
+    }
+
+    // Location 맵 관찰
+    if (locationMapRef.current) {
+      locationMapRef.current.style.animationDelay = "0.1s";
+      observer.observe(locationMapRef.current);
+    }
+
+    // Location 정보 관찰
+    if (locationInfoRef.current) {
+      locationInfoRef.current.style.animationDelay = "0.2s";
+      observer.observe(locationInfoRef.current);
+    }
 
     // Case Studies 카드들 관찰 (스태거 애니메이션)
     casesCardsRef.current.forEach((card, index) => {
@@ -273,8 +286,8 @@ const Home = () => {
               </div>
               <h3 className="home-about-card-title">글로벌 네트워크</h3>
               <p className="home-about-card-description">
-                뉴욕, LA, 실리콘밸리 등 미국 주요 도시의 전문가 네트워크를 통해
-                현지 맞춤형 지원을 제공합니다.
+                텍사스, 필라델피아, 뉴욕, 시애틀 등 미국 주요 도시의 전문가
+                네트워크를 통해 현지 맞춤형 지원을 제공합니다.
               </p>
             </div>
           </div>
@@ -501,9 +514,9 @@ const Home = () => {
           <div ref={processHeaderRef} className="home-process-header fade-up">
             <span className="home-section-tag">Process</span>
             <h2 className="home-section-title">
-              체계적인 4단계 프로세스
+              확실한 성과를 위한
               <span className="home-section-highlight">
-                확실한 성과를 보장합니다
+                체계적인 4단계 프로세스
               </span>
             </h2>
             <p className="home-section-description">
@@ -682,6 +695,102 @@ const Home = () => {
                   </svg>
                   <span>연중 지속</span>
                 </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Location Section */}
+      <section className="home-location">
+        <div className="container">
+          <div ref={locationHeaderRef} className="home-location-header fade-up">
+            <span className="home-section-tag">Coverage</span>
+            <h2 className="home-section-title">
+              미국 전역을 커버하는
+              <span className="home-section-highlight">
+                전문 네트워크 시스템
+              </span>
+            </h2>
+            <p className="home-section-description">
+              각 주마다 다른 세무 규정, 어디로 진출해야 할지 고민이신가요?
+              <br />
+              주요 비즈니스 거점에서 현지 맞춤형 전문 서비스를 제공합니다.
+            </p>
+          </div>
+
+          <div className="home-location-content">
+            <div ref={locationMapRef} className="home-location-map fade-up">
+              <img
+                src="/hero.png"
+                alt="미국 서비스 지역"
+                className="home-location-map-image"
+              />
+            </div>
+
+            <div ref={locationInfoRef} className="home-location-info fade-up">
+              <div>
+                <div className="home-location-badge">
+                  <MapPin size={16} />
+                  <span>6개 주요 거점</span>
+                </div>
+                <p className="home-location-description-main">
+                  텍사스의 세금 혜택부터 델라웨어의 법인 설립 장점까지, 각 주의
+                  특성을 완벽히 파악한 전문가들이 최적의 진출 전략을 제시합니다.
+                </p>
+              </div>
+
+              <div className="home-location-states">
+                <div className="home-location-state">
+                  <span className="home-location-state-icon">
+                    <Check size={12} strokeWidth={3} />
+                  </span>
+                  <span className="home-location-state-name">
+                    텍사스 (세금 혜택)
+                  </span>
+                </div>
+                <div className="home-location-state">
+                  <span className="home-location-state-icon">
+                    <Check size={12} strokeWidth={3} />
+                  </span>
+                  <span className="home-location-state-name">
+                    델라웨어 (법인 설립)
+                  </span>
+                </div>
+                <div className="home-location-state">
+                  <span className="home-location-state-icon">
+                    <Check size={12} strokeWidth={3} />
+                  </span>
+                  <span className="home-location-state-name">
+                    뉴욕 (금융 중심)
+                  </span>
+                </div>
+                <div className="home-location-state">
+                  <span className="home-location-state-icon">
+                    <Check size={12} strokeWidth={3} />
+                  </span>
+                  <span className="home-location-state-name">
+                    시애틀 (테크 허브)
+                  </span>
+                </div>
+                <div className="home-location-state">
+                  <span className="home-location-state-icon">
+                    <Check size={12} strokeWidth={3} />
+                  </span>
+                  <span className="home-location-state-name">필라델피아</span>
+                </div>
+                <div className="home-location-state">
+                  <span className="home-location-state-icon">
+                    <Check size={12} strokeWidth={3} />
+                  </span>
+                  <span className="home-location-state-name">뉴저지</span>
+                </div>
+              </div>
+
+              <div className="home-location-cta-wrapper">
+                <button className="home-location-cta-primary">
+                  지금 상담 신청하기
+                </button>
               </div>
             </div>
           </div>

@@ -1177,3 +1177,202 @@
     line-height: var(--lh-snug);
   }
 }
+
+/* ==================== Location Section ==================== */
+.home-location {
+  padding: var(--spacing-4xl) 0;
+  background: linear-gradient(
+    135deg,
+    var(--bg-primary) 0%,
+    var(--bg-tertiary) 100%
+  );
+  position: relative;
+  overflow: hidden;
+}
+
+.home-location-header {
+  text-align: center;
+  margin-bottom: var(--spacing-2xl);
+  position: relative;
+  z-index: 1;
+}
+
+.home-location-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-3xl);
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+/* Map Container */
+.home-location-map {
+  position: relative;
+  border-radius: var(--radius-2xl);
+  padding: var(--spacing-xl);
+  overflow: hidden;
+}
+
+.home-location-map-image {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+/* Info Section */
+.home-location-info {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+}
+
+.home-location-description-main {
+  font-size: var(--fs-lg);
+  color: var(--gray-600);
+  line-height: var(--lh-relaxed);
+  margin: 0;
+}
+
+/* State List */
+.home-location-states {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--spacing-sm);
+}
+
+.home-location-state {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  padding: var(--spacing-xs) 0;
+}
+
+.home-location-state-icon {
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-tertiary);
+  border-radius: var(--radius-full);
+  color: var(--primary-blue);
+  flex-shrink: 0;
+}
+
+.home-location-state-name {
+  font-size: var(--fs-base);
+  color: var(--gray-700);
+  font-weight: var(--fw-medium);
+}
+
+/* CTA Section */
+.home-location-cta-wrapper {
+  display: flex;
+  gap: var(--spacing-sm);
+  margin-top: var(--spacing-lg);
+}
+
+.home-location-cta-primary {
+  padding: var(--spacing-sm) var(--spacing-xl);
+  background: var(--primary-blue);
+  color: var(--white);
+  font-size: var(--fs-lg);
+  font-weight: var(--fw-semibold);
+  border-radius: var(--radius-lg);
+  transition: background var(--transition-base);
+  box-shadow: 0 4px 14px 0 rgba(45, 82, 130, 0.3);
+}
+
+.home-location-cta-primary:hover {
+  background: var(--primary-navy);
+}
+
+.home-location-cta-secondary {
+  padding: var(--spacing-sm) var(--spacing-lg);
+  background: transparent;
+  color: var(--primary-blue);
+  font-size: var(--fs-lg);
+  font-weight: var(--fw-semibold);
+  border: 2px solid var(--primary-blue);
+  border-radius: var(--radius-lg);
+  transition: all var(--transition-base);
+}
+
+.home-location-cta-secondary:hover {
+  background: var(--primary-blue);
+  color: var(--white);
+  transform: translateY(-2px);
+}
+
+/* Badge */
+.home-location-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  padding: var(--spacing-xs) var(--spacing-sm);
+  background: rgba(49, 130, 206, 0.1);
+  color: var(--primary-blue);
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-semibold);
+  border-radius: var(--radius-full);
+  margin-bottom: var(--spacing-lg);
+}
+
+/* ==================== Location - Responsive Design ==================== */
+@media (max-width: 1024px) {
+  .home-location-content {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-2xl);
+  }
+
+  .home-location-map {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .home-location-info {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .home-location-states {
+    justify-content: center;
+  }
+
+  .home-location-cta-wrapper {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .home-location {
+    padding: var(--spacing-3xl) 0;
+  }
+
+  .home-location-map {
+    padding: var(--spacing-lg);
+  }
+
+  .home-location-states {
+    grid-template-columns: 1fr;
+    max-width: 300px;
+  }
+
+  .home-location-cta-wrapper {
+    flex-direction: column;
+  }
+
+  .home-location-cta-primary,
+  .home-location-cta-secondary {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .home-location-description-main {
+    font-size: var(--fs-base);
+  }
+}
