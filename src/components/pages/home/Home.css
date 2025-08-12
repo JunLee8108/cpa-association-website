@@ -55,7 +55,7 @@
 /* Hero Inner Grid Layout - NEW */
 .home-hero-inner {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1.2fr;
   gap: var(--spacing-3xl);
   align-items: center;
   min-height: calc(100vh - 10rem);
@@ -80,12 +80,12 @@
 .home-hero-image-wrapper {
   position: relative;
   width: 100%;
-  max-width: 600px;
+  height: 80%;
 }
 
 .home-hero-image {
   width: 100%;
-  height: auto;
+  height: 100%;
   border-radius: var(--radius-2xl);
   object-fit: cover;
 }
@@ -238,6 +238,7 @@
 
   .home-hero-content {
     padding: var(--spacing-2xl) 0;
+    padding-top: 6rem;
   }
 
   .home-hero-text-wrapper {

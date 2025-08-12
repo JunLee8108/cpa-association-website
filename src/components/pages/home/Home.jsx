@@ -214,7 +214,6 @@ const Home = () => {
                     alt="미국 비즈니스 컨설팅"
                     className="home-hero-image"
                   />
-                  <div className="home-hero-image-decoration"></div>
                 </div>
               </div>
             </div>
