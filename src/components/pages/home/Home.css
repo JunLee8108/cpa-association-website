@@ -80,14 +80,14 @@
 .home-hero-image-wrapper {
   position: relative;
   width: 100%;
-  height: 80%;
+  height: 100%;
 }
 
 .home-hero-image {
   width: 100%;
   height: 100%;
   border-radius: var(--radius-2xl);
-  object-fit: cover;
+  object-fit: contain;
 }
 
 .home-hero-text-wrapper {
@@ -927,7 +927,7 @@
 /* ==================== Case Section ==================== */
 .home-cases {
   padding: var(--spacing-4xl) 0;
-  background: var(--bg-secondary);
+  background: var(--bg-primary);
   position: relative;
 }
 
