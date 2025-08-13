@@ -1,9 +1,13 @@
 import React, { useState, useEffect, useRef } from "react";
+import { useNavigate, useLocation } from "react-router";
 import { Menu, X, ChevronDown, Globe } from "lucide-react";
 import "./Navbar.css";
 
 // Name Changed
 const Navbar = () => {
+  const navigate = useNavigate();
+  const { pathname } = useLocation();
+
   const [isScrolled, setIsScrolled] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -67,28 +71,37 @@ const Navbar = () => {
       label: "회사소개",
       href: "#about",
       dropdown: [
-        { label: "전문가 소개", href: "#team" },
-        { label: "우리의 가치", href: "#values" },
-        { label: "연혁", href: "#history" },
+        { label: "전문가 소개", href: "#team", path: "" },
+        { label: "우리의 가치", href: "#values", path: "" },
+        { label: "연혁", href: "#history", path: "" },
       ],
     },
     {
       label: "서비스",
       href: "#services",
       dropdown: [
-        { label: "서비스 개요", href: "#service-overview" },
-        { label: "법인 설립", href: "#incorporation" },
-        { label: "세무 신고", href: "#audit" },
-        { label: "회계 및 재무 관리", href: "#cfo" },
-        { label: "비즈니스 컨설팅", href: "#payroll" },
+        { label: "서비스 개요", href: "#service-overview", path: "" },
+        { label: "법인 설립", href: "#incorporation", path: "" },
+        { label: "세무 신고", href: "#audit", path: "" },
+        { label: "회계 & 재무 관리", href: "#cfo", path: "" },
+        { label: "비즈니스 컨설팅", href: "#payroll", path: "" },
+        { label: "IT 솔루션", href: "#payroll", path: "" },
       ],
     },
-    { label: "성공사례", href: "#cases" },
-    { label: "문의하기", href: "#contact", isButton: true },
+    { label: "프로세스", href: "#process", path: "" },
+    { label: "성공사례", href: "#cases", path: "" },
+    { label: "문의하기", href: "#contact", isButton: true, path: "/contact" },
   ];
 
   const handleMobileMenuToggle = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
+
+  const handleNavigation = (path) => {
+    // 이미 같은 경로에 있으면 무시
+    if (pathname === path) return;
+
+    navigate(path);
   };
 
   return (
@@ -100,10 +113,13 @@ const Navbar = () => {
       <div className="navbar-container">
         {/* Logo */}
         <div className="navbar-logo">
-          <a href="#home" className="navbar-logo-link">
+          <div
+            onClick={() => handleNavigation("/")}
+            className="navbar-logo-link"
+          >
             <span className="navbar-logo-text">CPA</span>
             <span className="navbar-logo-accent">Group</span>
-          </a>
+          </div>
         </div>
 
         {/* Desktop Navigation */}
@@ -119,7 +135,10 @@ const Navbar = () => {
                 onMouseLeave={() => item.dropdown && setActiveDropdown(null)}
               >
                 {item.isButton ? (
-                  <a href={item.href} className="navbar-cta-button">
+                  <a
+                    onClick={() => handleNavigation(item.path)}
+                    className="navbar-cta-button"
+                  >
                     {item.label}
                   </a>
                 ) : (

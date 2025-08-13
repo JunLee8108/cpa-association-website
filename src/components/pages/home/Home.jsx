@@ -1,8 +1,19 @@
 import React, { useEffect, useRef } from "react";
+import { useNavigate, useLocation } from "react-router";
 import { Clock, Package, Globe, MapPin, Check } from "lucide-react";
 import "./Home.css";
 
 const Home = () => {
+  const navigate = useNavigate();
+  const { pathname } = useLocation();
+
+  const handleNavigation = (path) => {
+    // 이미 같은 경로에 있으면 무시
+    if (pathname === path) return;
+
+    navigate(path);
+  };
+
   // Refs for animated elements
   const heroTitleRef = useRef(null);
   const heroSubtitleRef = useRef(null);
@@ -179,10 +190,13 @@ const Home = () => {
                     className="home-hero-cta-wrapper fade-up"
                   >
                     <button className="home-hero-cta-secondary">
-                      서비스 소개 보기
+                      서비스 소개
                     </button>
-                    <button className="home-hero-cta-primary">
-                      무료 상담 신청하기
+                    <button
+                      className="home-hero-cta-primary"
+                      onClick={() => handleNavigation("/contact")}
+                    >
+                      상담 신청하기
                     </button>
                   </div>
                 </div>
@@ -298,7 +312,12 @@ const Home = () => {
             <p className="home-about-cta-description">
               무료 상담을 통해 귀사에 최적화된 미국 진출 전략을 제안해드립니다.
             </p>
-            <button className="home-about-cta-button">전문가와 상담하기</button>
+            <button
+              className="home-about-cta-button"
+              onClick={() => handleNavigation("/contact")}
+            >
+              전문가와 상담하기
+            </button>
           </div>
         </div>
       </section>
@@ -510,7 +529,7 @@ const Home = () => {
             >
               <div className="home-service-image-wrapper">
                 <img
-                  src="/service-5.jpg"
+                  src="/service-6.jpg"
                   alt="법인 설립 서비스"
                   className="home-service-image"
                   style={{ objectPosition: "top" }}
@@ -520,15 +539,15 @@ const Home = () => {
                 </div>
               </div>
               <div className="home-service-content">
-                <h3 className="home-service-title">IT 솔루션 구축</h3>
+                <h3 className="home-service-title">HR 및 급여 관리</h3>
                 <p className="home-service-description">
-                  효율적인 비즈니스 운영을 위한 핵심 시스템 도입과 최적화를 통해
-                  업무 생산성을 극대화합니다.
+                  미국 노동법 준수와 체계적인 인사 관리로 안정적인 조직 운영과
+                  성장을 지원합니다.
                 </p>
                 <ul className="home-service-features">
-                  <li>Microsoft 365 라이센스 공급 및 관리</li>
-                  <li>CRM 도입 및 커스터마이징</li>
-                  <li>프로세스 자동화</li>
+                  <li>HR 정책 수립 </li>
+                  <li>급여 처리 및 Payroll 시스템 운영</li>
+                  <li>직원 복리후생 설계 (401k, 건강보험)</li>
                 </ul>
                 <a href="#" className="home-service-link">
                   자세히 보기
@@ -557,7 +576,7 @@ const Home = () => {
             >
               <div className="home-service-image-wrapper">
                 <img
-                  src="/service-6.jpg"
+                  src="/service-5.jpg"
                   alt="법인 설립 서비스"
                   className="home-service-image"
                   style={{ objectPosition: "top" }}
@@ -567,15 +586,15 @@ const Home = () => {
                 </div>
               </div>
               <div className="home-service-content">
-                <h3 className="home-service-title">HR 및 급여 관리</h3>
+                <h3 className="home-service-title">IT 솔루션 구축</h3>
                 <p className="home-service-description">
-                  미국 노동법 준수와 체계적인 인사 관리로 안정적인 조직 운영과
-                  성장을 지원합니다.
+                  효율적인 비즈니스 운영을 위한 핵심 시스템 도입과 최적화를 통해
+                  업무 생산성을 극대화합니다.
                 </p>
                 <ul className="home-service-features">
-                  <li>HR 정책 수립 </li>
-                  <li>급여 처리 및 Payroll 시스템 운영</li>
-                  <li>직원 복리후생 설계 (401k, 건강보험)</li>
+                  <li>Microsoft 365 라이센스 공급 및 관리</li>
+                  <li>CRM 도입 및 커스터마이징</li>
+                  <li>프로세스 자동화</li>
                 </ul>
                 <a href="#" className="home-service-link">
                   자세히 보기
@@ -883,7 +902,10 @@ const Home = () => {
               </div>
 
               <div className="home-location-cta-wrapper">
-                <button className="home-location-cta-primary">
+                <button
+                  className="home-location-cta-primary"
+                  onClick={() => handleNavigation("/contact")}
+                >
                   지금 상담 신청하기
                 </button>
               </div>
@@ -1001,7 +1023,12 @@ const Home = () => {
             <p className="home-cases-cta-text">
               귀사도 미국 시장에서 성공 스토리를 만들어보세요
             </p>
-            <button className="home-cases-cta-button">상담 시작하기</button>
+            <button
+              className="home-cases-cta-button"
+              onClick={() => handleNavigation("/contact")}
+            >
+              상담 시작하기
+            </button>
           </div>
         </div>
       </section>

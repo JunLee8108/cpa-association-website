@@ -641,7 +641,7 @@
 
 .home-service-features {
   list-style: none;
-  margin-bottom: var(--spacing-lg);
+  margin-bottom: var(--spacing-md);
   flex: 1;
 }
 
@@ -667,7 +667,7 @@
   align-items: center;
   gap: var(--spacing-xs);
   color: var(--primary-blue);
-  font-size: var(--fs-sm);
+  font-size: 0.85rem;
   font-weight: var(--fw-semibold);
   transition: all var(--transition-base);
 }
