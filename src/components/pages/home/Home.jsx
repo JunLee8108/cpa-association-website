@@ -163,7 +163,7 @@ const Home = () => {
                     ref={heroSubtitleRef}
                     className="home-hero-subtitle fade-up"
                   >
-                    한국 회계사 6인이 함께하는 전문 CPA 그룹
+                    한인 회계사 6인이 함께하는 전문 CPA 그룹
                   </p>
                   <p
                     ref={heroDescriptionRef}
@@ -325,12 +325,59 @@ const Home = () => {
             >
               <div className="home-service-image-wrapper">
                 <img
+                  src="/service-3.jpg"
+                  alt="법인 설립 서비스"
+                  className="home-service-image"
+                  style={{ objectPosition: "top" }}
+                />
+                <div className="home-service-overlay">
+                  <span className="home-service-number">01</span>
+                </div>
+              </div>
+              <div className="home-service-content">
+                <h3 className="home-service-title">법인 설립 및 운영</h3>
+                <p className="home-service-description">
+                  비즈니스 목적에 맞는 최적의 법인 형태 선택부터 설립, 운영까지
+                  전 과정을 지원합니다.
+                </p>
+                <ul className="home-service-features">
+                  <li>LLC, C-Corp, S-Corp 설립</li>
+                  <li>EIN 및 라이센스 취득</li>
+                  <li>법인 유지 관리</li>
+                </ul>
+                <a href="#" className="home-service-link">
+                  자세히 보기
+                  <svg
+                    className="home-service-arrow"
+                    width="20"
+                    height="20"
+                    viewBox="0 0 20 20"
+                    fill="none"
+                  >
+                    <path
+                      d="M7.5 5L12.5 10L7.5 15"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                </a>
+              </div>
+            </div>
+
+            <div
+              ref={(el) => (servicesCardsRef.current[1] = el)}
+              className="home-service-item fade-up"
+            >
+              <div className="home-service-image-wrapper">
+                <img
                   src="/service-1.jpg"
                   alt="세무 서비스"
                   className="home-service-image"
                 />
                 <div className="home-service-overlay">
-                  <span className="home-service-number">01</span>
+                  <span className="home-service-number">02</span>
                 </div>
               </div>
               <div className="home-service-content">
@@ -366,7 +413,7 @@ const Home = () => {
             </div>
 
             <div
-              ref={(el) => (servicesCardsRef.current[1] = el)}
+              ref={(el) => (servicesCardsRef.current[2] = el)}
               className="home-service-item fade-up"
             >
               <div className="home-service-image-wrapper">
@@ -376,7 +423,7 @@ const Home = () => {
                   className="home-service-image"
                 />
                 <div className="home-service-overlay">
-                  <span className="home-service-number">02</span>
+                  <span className="home-service-number">03</span>
                 </div>
               </div>
               <div className="home-service-content">
@@ -389,53 +436,6 @@ const Home = () => {
                   <li>재무제표 작성 및 감사</li>
                   <li>월별 회계 장부 정리</li>
                   <li>재무 분석 및 리포팅</li>
-                </ul>
-                <a href="#" className="home-service-link">
-                  자세히 보기
-                  <svg
-                    className="home-service-arrow"
-                    width="20"
-                    height="20"
-                    viewBox="0 0 20 20"
-                    fill="none"
-                  >
-                    <path
-                      d="M7.5 5L12.5 10L7.5 15"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
-                </a>
-              </div>
-            </div>
-
-            <div
-              ref={(el) => (servicesCardsRef.current[2] = el)}
-              className="home-service-item fade-up"
-            >
-              <div className="home-service-image-wrapper">
-                <img
-                  src="/service-3.jpg"
-                  alt="법인 설립 서비스"
-                  className="home-service-image"
-                  style={{ objectPosition: "top" }}
-                />
-                <div className="home-service-overlay">
-                  <span className="home-service-number">03</span>
-                </div>
-              </div>
-              <div className="home-service-content">
-                <h3 className="home-service-title">법인 설립 및 운영</h3>
-                <p className="home-service-description">
-                  비즈니스 목적에 맞는 최적의 법인 형태 선택부터 설립, 운영까지
-                  전 과정을 지원합니다.
-                </p>
-                <ul className="home-service-features">
-                  <li>LLC, C-Corp, S-Corp 설립</li>
-                  <li>EIN 및 라이센스 취득</li>
-                  <li>법인 유지 관리</li>
                 </ul>
                 <a href="#" className="home-service-link">
                   자세히 보기
@@ -482,6 +482,100 @@ const Home = () => {
                   <li>시장 진출 전략 수립</li>
                   <li>M&A 및 투자 자문</li>
                   <li>비즈니스 프로세스 최적화</li>
+                </ul>
+                <a href="#" className="home-service-link">
+                  자세히 보기
+                  <svg
+                    className="home-service-arrow"
+                    width="20"
+                    height="20"
+                    viewBox="0 0 20 20"
+                    fill="none"
+                  >
+                    <path
+                      d="M7.5 5L12.5 10L7.5 15"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                </a>
+              </div>
+            </div>
+
+            <div
+              ref={(el) => (servicesCardsRef.current[4] = el)}
+              className="home-service-item fade-up"
+            >
+              <div className="home-service-image-wrapper">
+                <img
+                  src="/service-5.jpg"
+                  alt="법인 설립 서비스"
+                  className="home-service-image"
+                  style={{ objectPosition: "top" }}
+                />
+                <div className="home-service-overlay">
+                  <span className="home-service-number">05</span>
+                </div>
+              </div>
+              <div className="home-service-content">
+                <h3 className="home-service-title">IT 솔루션 구축</h3>
+                <p className="home-service-description">
+                  효율적인 비즈니스 운영을 위한 핵심 시스템 도입과 최적화를 통해
+                  업무 생산성을 극대화합니다.
+                </p>
+                <ul className="home-service-features">
+                  <li>Microsoft 365 라이센스 공급 및 관리</li>
+                  <li>CRM 도입 및 커스터마이징</li>
+                  <li>프로세스 자동화</li>
+                </ul>
+                <a href="#" className="home-service-link">
+                  자세히 보기
+                  <svg
+                    className="home-service-arrow"
+                    width="20"
+                    height="20"
+                    viewBox="0 0 20 20"
+                    fill="none"
+                  >
+                    <path
+                      d="M7.5 5L12.5 10L7.5 15"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                </a>
+              </div>
+            </div>
+
+            <div
+              ref={(el) => (servicesCardsRef.current[5] = el)}
+              className="home-service-item fade-up"
+            >
+              <div className="home-service-image-wrapper">
+                <img
+                  src="/service-6.jpg"
+                  alt="법인 설립 서비스"
+                  className="home-service-image"
+                  style={{ objectPosition: "top" }}
+                />
+                <div className="home-service-overlay">
+                  <span className="home-service-number">06</span>
+                </div>
+              </div>
+              <div className="home-service-content">
+                <h3 className="home-service-title">HR 및 급여 관리</h3>
+                <p className="home-service-description">
+                  미국 노동법 준수와 체계적인 인사 관리로 안정적인 조직 운영과
+                  성장을 지원합니다.
+                </p>
+                <ul className="home-service-features">
+                  <li>HR 정책 수립 </li>
+                  <li>급여 처리 및 Payroll 시스템 운영</li>
+                  <li>직원 복리후생 설계 (401k, 건강보험)</li>
                 </ul>
                 <a href="#" className="home-service-link">
                   자세히 보기

@@ -565,10 +565,9 @@
 .home-services-grid {
   display: grid;
   width: 100%;
-  max-width: 1024px;
   margin: 0 auto;
-  grid-template-columns: repeat(2, 1fr);
-  gap: var(--spacing-xl);
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--spacing-xl) var(--spacing-lg);
 }
 
 .home-service-item {
@@ -583,7 +582,7 @@
 .home-service-image-wrapper {
   position: relative;
   width: 100%;
-  height: 240px;
+  height: 180px;
   overflow: hidden;
   background: linear-gradient(135deg, var(--gray-200), var(--gray-300));
 }
@@ -689,11 +688,13 @@
 /* ==================== Services - Responsive Design ==================== */
 @media (max-width: 1024px) {
   .home-services-grid {
+    max-width: 800px;
+    grid-template-columns: repeat(2, 1fr);
     gap: var(--spacing-lg);
   }
 
   .home-service-image-wrapper {
-    height: 200px;
+    height: 180px;
   }
 }
 
@@ -711,7 +712,7 @@
   }
 
   .home-service-item {
-    max-width: 500px;
+    max-width: 400px;
     margin: 0 auto;
     width: 100%;
   }
