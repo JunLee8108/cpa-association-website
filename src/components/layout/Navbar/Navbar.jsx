@@ -223,7 +223,10 @@ const Navbar = () => {
                           key={dropIndex}
                           href={dropItem.href}
                           className="navbar-mobile-dropdown-item"
-                          onClick={() => setIsMobileMenuOpen(false)}
+                          onClick={() => {
+                            setIsMobileMenuOpen(false);
+                            handleNavigation(item.path);
+                          }}
                         >
                           {dropItem.label}
                         </a>
@@ -234,7 +237,10 @@ const Navbar = () => {
                   <a
                     href={item.href}
                     className="navbar-mobile-cta"
-                    onClick={() => setIsMobileMenuOpen(false)}
+                    onClick={() => {
+                      setIsMobileMenuOpen(false);
+                      handleNavigation(item.path);
+                    }}
                   >
                     {item.label}
                   </a>
@@ -242,7 +248,10 @@ const Navbar = () => {
                   <a
                     href={item.href}
                     className="navbar-mobile-link"
-                    onClick={() => setIsMobileMenuOpen(false)}
+                    onClick={() => {
+                      setIsMobileMenuOpen(false);
+                      handleNavigation(item.path);
+                    }}
                   >
                     {item.label}
                   </a>
