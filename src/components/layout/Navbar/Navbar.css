@@ -191,7 +191,7 @@
 
 /* CTA Button */
 .navbar-cta-button {
-  padding: 10px 24px;
+  padding: 10px 20px;
   background: var(--primary-light-blue);
   color: var(--white);
   font-size: 15px;

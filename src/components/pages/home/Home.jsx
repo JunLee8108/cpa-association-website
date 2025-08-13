@@ -285,7 +285,7 @@ const Home = () => {
               </div>
               <h3 className="home-about-card-title">글로벌 네트워크</h3>
               <p className="home-about-card-description">
-                텍사스, 필라델피아, 뉴욕, 시애틀 등 미국 주요 도시의 전문가
+                뉴욕, 시애틀, 텍사스, 필라델피아 등 미국 주요 도시의 전문가
                 네트워크를 통해 현지 맞춤형 지원을 제공합니다.
               </p>
             </div>
@@ -734,8 +734,9 @@ const Home = () => {
                   <span>6개 주요 거점</span>
                 </div>
                 <p className="home-location-description-main">
-                  텍사스의 세금 혜택부터 델라웨어의 법인 설립 장점까지, 각 주의
-                  특성을 완벽히 파악한 전문가들이 최적의 진출 전략을 제시합니다.
+                  텍사스의 세금 혜택부터 델라웨어의 법인 설립 장점까지, 각 주 및
+                  도시의 특성을 완벽히 파악한 전문가들이 최적의 진출 전략을
+                  제시합니다.
                 </p>
               </div>
 
@@ -745,44 +746,45 @@ const Home = () => {
                     <Check size={12} strokeWidth={3} />
                   </span>
                   <span className="home-location-state-name">
-                    텍사스 (세금 혜택)
+                    노스캐롤라이나
                   </span>
                 </div>
+
                 <div className="home-location-state">
                   <span className="home-location-state-icon">
                     <Check size={12} strokeWidth={3} />
                   </span>
                   <span className="home-location-state-name">
-                    델라웨어 (법인 설립)
+                    뉴욕 • 뉴저지
                   </span>
                 </div>
+
                 <div className="home-location-state">
                   <span className="home-location-state-icon">
                     <Check size={12} strokeWidth={3} />
                   </span>
-                  <span className="home-location-state-name">
-                    뉴욕 (금융 중심)
-                  </span>
+                  <span className="home-location-state-name">시애틀</span>
                 </div>
+
                 <div className="home-location-state">
                   <span className="home-location-state-icon">
                     <Check size={12} strokeWidth={3} />
                   </span>
-                  <span className="home-location-state-name">
-                    시애틀 (테크 허브)
-                  </span>
+                  <span className="home-location-state-name">캘리포니아</span>
                 </div>
+
+                <div className="home-location-state">
+                  <span className="home-location-state-icon">
+                    <Check size={12} strokeWidth={3} />
+                  </span>
+                  <span className="home-location-state-name">텍사스</span>
+                </div>
+
                 <div className="home-location-state">
                   <span className="home-location-state-icon">
                     <Check size={12} strokeWidth={3} />
                   </span>
                   <span className="home-location-state-name">필라델피아</span>
-                </div>
-                <div className="home-location-state">
-                  <span className="home-location-state-icon">
-                    <Check size={12} strokeWidth={3} />
-                  </span>
-                  <span className="home-location-state-name">뉴저지</span>
                 </div>
               </div>
 

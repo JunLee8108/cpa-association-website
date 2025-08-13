@@ -84,7 +84,6 @@ const Navbar = () => {
       ],
     },
     { label: "성공사례", href: "#cases" },
-    { label: "고객후기", href: "#testimonials" },
     { label: "문의하기", href: "#contact", isButton: true },
   ];
 
