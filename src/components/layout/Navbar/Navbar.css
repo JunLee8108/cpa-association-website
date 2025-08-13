@@ -353,7 +353,7 @@
 .navbar-mobile-cta {
   display: block;
   padding: 14px 24px;
-  background: #d69e2e;
+  background: var(--primary-light-blue);
   color: white;
   font-size: 16px;
   font-weight: 600;
@@ -365,8 +365,8 @@
 }
 
 .navbar-mobile-cta:hover {
-  background: #b87c1a;
-  transform: scale(1.02);
+  background: #017ff4;
+  color: var(--white);
 }
 
 /* ==================== Responsive Design ==================== */

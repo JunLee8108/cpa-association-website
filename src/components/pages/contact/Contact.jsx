@@ -105,9 +105,13 @@ const Contact = () => {
       </section>
 
       {/* Form Section */}
-      <section className="contact-form-section">
+      <section
+        className="contact-form-section fade-up"
+        ref={formSectionRef}
+        style={{ animationDelay: "0.2s" }}
+      >
         <div className="container">
-          <div ref={formSectionRef} className="contact-content fade-up">
+          <div className="contact-content ">
             <div className="contact-form-wrapper">
               <div className="contact-form-inner">
                 <div className="form-header">
