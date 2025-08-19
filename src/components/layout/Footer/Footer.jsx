@@ -89,10 +89,13 @@ const Footer = () => {
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="footer-link">
+                  <span
+                    onClick={() => handleNavigation("/services")}
+                    className="footer-link"
+                  >
                     <ChevronRight size={14} />
                     <span>서비스 개요</span>
-                  </a>
+                  </span>
                 </li>
                 <li>
                   <a href="#" className="footer-link">

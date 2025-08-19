@@ -78,13 +78,14 @@ const Navbar = () => {
     },
     {
       label: "서비스",
-      href: "#services",
+      href: "",
+      path: "/services",
       dropdown: [
-        { label: "서비스 개요", href: "#service-overview", path: "" },
         { label: "법인 설립", href: "#incorporation", path: "" },
         { label: "세무 신고", href: "#audit", path: "" },
         { label: "회계 & 재무 관리", href: "#cfo", path: "" },
         { label: "비즈니스 컨설팅", href: "#payroll", path: "" },
+        { label: "HR 및 급여 관리", href: "#payroll", path: "" },
         { label: "IT 솔루션", href: "#payroll", path: "" },
       ],
     },
@@ -143,7 +144,10 @@ const Navbar = () => {
                   </a>
                 ) : (
                   <>
-                    <a href={item.href} className="navbar-menu-link">
+                    <a
+                      onClick={() => handleNavigation(item.path)}
+                      className="navbar-menu-link"
+                    >
                       {item.label}
                       {item.dropdown && (
                         <ChevronDown

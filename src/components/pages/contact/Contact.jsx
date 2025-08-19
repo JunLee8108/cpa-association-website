@@ -98,7 +98,7 @@ const Contact = () => {
           <div ref={heroContentRef} className="contact-hero-content fade-up">
             <h1 className="contact-hero-heading">문의하기</h1>
             <p className="contact-hero-subheading">
-              미국 진출의 모든 과정, 전문가가 함께합니다
+              미국 진출의 모든 과정, 전문가가 함께합니다.
             </p>
           </div>
         </div>

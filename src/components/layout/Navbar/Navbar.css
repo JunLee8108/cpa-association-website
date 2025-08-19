@@ -123,6 +123,7 @@
   text-decoration: none;
   border-radius: 8px;
   transition: all 0.3s ease;
+  cursor: pointer;
   position: relative;
   letter-spacing: -0.01em;
 }

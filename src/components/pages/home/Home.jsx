@@ -174,7 +174,8 @@ const Home = () => {
                     ref={heroSubtitleRef}
                     className="home-hero-subtitle fade-up"
                   >
-                    한인 회계사 6인이 함께하는 전문 CPA 그룹
+                    {/* 한인 회계사 6인이 함께하는 전문 CPA 그룹 */}
+                    회계•세무•비즈니스 토탈 전문가 솔루션
                   </p>
                   <p
                     ref={heroDescriptionRef}
