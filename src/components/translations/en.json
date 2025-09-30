@@ -1,0 +1,491 @@
+{
+  "common": {
+    "companyName": "CPA Group",
+    "companyNameFull": "CPA Group USA",
+    "tagline": "Korean CPA Professional Group",
+    "phone": "Phone",
+    "email": "Email",
+    "required": "*",
+    "submit": "Submit",
+    "loading": "Loading...",
+    "success": "Success",
+    "error": "Error",
+    "more": "Learn More",
+    "close": "Close"
+  },
+
+  "nav": {
+    "about": "About",
+    "services": "Services",
+    "cases": "Success Stories",
+    "contact": "Contact",
+    "dropdown": {
+      "team": "Our Team",
+      "values": "Our Values",
+      "incorporation": "Business Formation",
+      "tax": "Tax Filing",
+      "accounting": "Accounting & Finance",
+      "consulting": "Business Consulting",
+      "hr": "HR & Payroll",
+      "it": "IT Solutions"
+    }
+  },
+
+  "footer": {
+    "description": "Your trusted partner for successful U.S. market entry with over 15 years of professional experience supporting Korean businesses.",
+    "quickLinks": "Quick Links",
+    "mainServices": "Main Services",
+    "contactInfo": "Contact Info",
+    "aboutUs": "About Us",
+    "servicesOverview": "Services Overview",
+    "process": "Process",
+    "contactUs": "Contact Us",
+    "servicesList": {
+      "incorporation": "Business Formation & Operations",
+      "tax": "Tax Planning & Compliance",
+      "accounting": "Accounting & Financial Management",
+      "consulting": "Business Consulting",
+      "it": "IT Solutions"
+    },
+    "newsletter": {
+      "title": "Get U.S. Business Insights",
+      "description": "Receive the latest tax updates and business tips delivered to your inbox.",
+      "placeholder": "Enter your email address",
+      "button": "Subscribe"
+    },
+    "legal": {
+      "privacy": "Privacy Policy",
+      "terms": "Terms of Service",
+      "cookies": "Cookie Policy",
+      "copyright": "© {year} CPA Group USA. All rights reserved."
+    }
+  },
+
+  "home": {
+    "hero": {
+      "title": "Your Trusted Partner for U.S.",
+      "subtitle": "Comprehensive Expert Solutions",
+      "description": "We provide clear solutions to complex US tax and accounting challenges and offer customized solutions for Korean companies' successful US market entry.",
+      "cta": {
+        "primary": "Schedule Consultation",
+        "secondary": "View Services"
+      },
+      "stats": {
+        "clients": "Successful U.S. Expansions",
+        "experience": "Years of Experience",
+        "experts": "Professional CPAs"
+      }
+    },
+
+    "about": {
+      "tag": "About Us",
+      "title": "For Korean Companies",
+      "titleHighlight": "U.S. Business Expert Group",
+      "description": "With deep understanding of Korean business culture and expertise in the U.S. business environment, we are your optimal partner for successful U.S. expansion.",
+      "cards": {
+        "experience": {
+          "title": "15+ Years of Expertise",
+          "description": "With over 15 years of accumulated experience in the U.S. market, we provide customized services tailored to Korean companies' unique needs."
+        },
+        "onestop": {
+          "title": "One-Stop Solution",
+          "description": "From company formation to tax filing, accounting audits, and consulting - all U.S. business services in one place."
+        },
+        "network": {
+          "title": "Global Network",
+          "description": "Local support through our expert network in major U.S. cities including New York, Seattle, Texas, and Philadelphia."
+        }
+      },
+      "cta": {
+        "title": "Start Your U.S. Journey Today",
+        "description": "Get a free consultation to receive an optimized U.S. expansion strategy for your company.",
+        "button": "Consult with Experts"
+      }
+    },
+
+    "services": {
+      "tag": "Services",
+      "title": "Expert Services for",
+      "titleHighlight": "Your U.S. Expansion",
+      "description": "From company formation to tax management, our specialists provide integrated solutions.",
+      "viewMore": "Learn More",
+      "items": {
+        "incorporation": {
+          "title": "Business Formation & Operations",
+          "description": "Supporting the entire process from selecting the optimal entity type to formation and operations for your business objectives.",
+          "features": [
+            "LLC, C-Corp, S-Corp Formation",
+            "EIN & License Acquisition",
+            "Corporate Maintenance"
+          ]
+        },
+        "tax": {
+          "title": "Tax Planning & Strategy",
+          "description": "Complete understanding of complex U.S. tax systems including federal, state, and sales tax with optimal tax-saving strategies.",
+          "features": [
+            "Corporate & Individual Tax Filing",
+            "Tax Audit Response",
+            "International Tax Consulting"
+          ]
+        },
+        "accounting": {
+          "title": "Accounting & Financial Management",
+          "description": "Supporting transparent financial operations with accurate financial statements per GAAP standards and systematic accounting management.",
+          "features": [
+            "Financial Statement Preparation & Audit",
+            "Monthly Bookkeeping",
+            "Financial Analysis & Reporting"
+          ]
+        },
+        "consulting": {
+          "title": "Business Consulting",
+          "description": "Providing step-by-step customized consulting from U.S. market entry strategy to localization and growth planning.",
+          "features": [
+            "Market Entry Strategy",
+            "M&A & Investment Advisory",
+            "Business Process Optimization"
+          ]
+        },
+        "hr": {
+          "title": "HR & Payroll Management",
+          "description": "Supporting stable organization operations and growth through U.S. labor law compliance and systematic HR management.",
+          "features": [
+            "HR Policy Development",
+            "Payroll Processing & System Operations",
+            "Benefits Design (401k, Health Insurance)"
+          ]
+        },
+        "it": {
+          "title": "IT Solution Implementation",
+          "description": "Maximizing productivity through implementation and optimization of core systems for efficient business operations.",
+          "features": [
+            "Microsoft 365 License & Management",
+            "CRM Implementation & Customization",
+            "Process Automation"
+          ]
+        }
+      }
+    },
+
+    "process": {
+      "tag": "Process",
+      "title": "For Guaranteed Results",
+      "titleHighlight": "Systematic 4-Step Process",
+      "description": "From initial consultation to ongoing support, experts accompany you at every step.",
+      "steps": {
+        "consultation": {
+          "number": "01",
+          "title": "Free Consultation",
+          "description": "Understanding your business objectives and U.S. expansion plans in detail.",
+          "items": [
+            "Business Model Analysis",
+            "Goal Setting",
+            "Timeline Planning"
+          ],
+          "duration": "1-2 days"
+        },
+        "analysis": {
+          "number": "02",
+          "title": "In-Depth Analysis",
+          "description": "Precise analysis of current situation and development of optimal entry strategy.",
+          "items": [
+            "Tax Structure Analysis",
+            "Entity Type Review",
+            "Risk Assessment"
+          ],
+          "duration": "1-2 weeks"
+        },
+        "execution": {
+          "number": "03",
+          "title": "Strategy Execution",
+          "description": "Executing from company formation to operations according to established strategy.",
+          "items": [
+            "Company Formation",
+            "Tax Registration",
+            "Operations Setup"
+          ],
+          "duration": "2-4 weeks"
+        },
+        "support": {
+          "number": "04",
+          "title": "Ongoing Support",
+          "description": "Providing continuous management and support for stable operations.",
+          "items": [
+            "Regular Tax Filing",
+            "Accounting Support",
+            "Consulting Services"
+          ],
+          "duration": "Year-round"
+        }
+      }
+    },
+
+    "location": {
+      "tag": "Coverage",
+      "title": "Covering All of America",
+      "titleHighlight": "Professional Network System",
+      "description": "Different tax regulations in each state, wondering where to expand? We provide localized expert services at major business hubs.",
+      "mainDescription": "From Texas tax benefits to Delaware's incorporation advantages, our experts who fully understand each state and city's characteristics present optimal expansion strategies.",
+      "badge": "6 Major Hubs",
+      "states": [
+        "North Carolina",
+        "New York • New Jersey",
+        "Seattle",
+        "California",
+        "Texas",
+        "Philadelphia"
+      ],
+      "cta": {
+        "primary": "Schedule Consultation Now"
+      }
+    },
+
+    "cases": {
+      "tag": "Stories",
+      "title": "Real Client",
+      "titleHighlight": "Successful U.S. Expansion Cases",
+      "description": "Korean companies from various industries are achieving success in the U.S. market with us.",
+      "case1": {
+        "title": "Startup Company A",
+        "industry": "IT / SaaS · Silicon Valley Entry",
+        "before": {
+          "label": "Before",
+          "items": [
+            "Overtaxation due to complex U.S. tax laws",
+            "Lack of credibility in investor meetings",
+            "No local corporate operation experience"
+          ]
+        },
+        "after": {
+          "label": "After",
+          "items": [
+            "Tax savings through optimized corporate structure",
+            "Successfully secured Series A funding",
+            "Stable U.S. corporate operations"
+          ]
+        },
+        "quote": "Thanks to professional tax strategy and investment preparation, we were able to successfully establish ourselves.",
+        "author": "- CEO, Tech Startup A"
+      },
+      "case2": {
+        "title": "Manufacturing Company B",
+        "industry": "Manufacturing · Texas Factory Establishment",
+        "before": {
+          "label": "Before",
+          "items": [
+            "High import tariff burden",
+            "Excessive logistics costs",
+            "Delayed U.S. market response"
+          ]
+        },
+        "after": {
+          "label": "After",
+          "items": [
+            "Tariff avoidance through local production",
+            "State government incentives secured",
+            "Fast market response system established"
+          ]
+        },
+        "quote": "Thank you for being with us through the entire process from Texas entry strategy to factory establishment and tax optimization.",
+        "author": "- CFO, Manufacturing Company B"
+      },
+      "cta": {
+        "text": "Create your success story in the U.S. market",
+        "button": "Start Consultation"
+      }
+    }
+  },
+
+  "services": {
+    "hero": {
+      "title": "One-Stop Total Solution",
+      "description": "From business formation to tax, accounting, HR, and IT solutions\nSpecialists in each field support you with integrated solutions."
+    },
+    "main": {
+      "tag": "Our Services",
+      "title": "By Specialty",
+      "titleHighlight": "Integrated Services",
+      "description": "Specialists in each field work organically to perfectly support your U.S. business",
+      "learnMore": "Learn More",
+      "mostPopular": "Most Popular"
+    },
+    "features": {
+      "tag": "Why Choose Us",
+      "title": "Why Choose Us?",
+      "description": "With over 15 years of experience and expertise, our specialists provide customized total solutions to guarantee successful U.S. expansion for Korean companies.",
+      "items": {
+        "compliance": {
+          "title": "Legal Compliance",
+          "description": "Zero risk through complete U.S. law and regulation compliance"
+        },
+        "response": {
+          "title": "Quick Response",
+          "description": "System capable of immediate response to any situation"
+        },
+        "network": {
+          "title": "Global Network",
+          "description": "Expert network across 6 major U.S. cities"
+        },
+        "expertise": {
+          "title": "Proven Expertise",
+          "description": "Multiple CPAs, 500+ success stories"
+        }
+      }
+    },
+    "process": {
+      "tag": "Our Process",
+      "title": "Systematic Service Process",
+      "steps": {
+        "consultation": {
+          "title": "Initial Consultation",
+          "description": "Business assessment and needs analysis"
+        },
+        "strategy": {
+          "title": "Strategy Development",
+          "description": "Customized solution design and proposal"
+        },
+        "execution": {
+          "title": "Execution & Management",
+          "description": "Step-by-step execution and continuous monitoring"
+        },
+        "achievement": {
+          "title": "Achievement",
+          "description": "Goal achievement and continuous growth support"
+        }
+      }
+    },
+    "pricing": {
+      "tag": "Pricing Plans",
+      "title": "Tailored to Your Business Size",
+      "titleHighlight": "Reasonable Pricing",
+      "description": "Providing the best service at transparent and reasonable prices",
+      "mostPopular": "Most Popular",
+      "plans": {
+        "startup": {
+          "name": "Startup",
+          "description": "Startups and small businesses",
+          "price": "$500",
+          "period": "/month starting",
+          "features": [
+            "Business formation support",
+            "Basic tax filing",
+            "Monthly bookkeeping",
+            "Email support",
+            "Quarterly review"
+          ],
+          "cta": "Get Started"
+        },
+        "growth": {
+          "name": "Growth",
+          "description": "Growing companies",
+          "price": "$1,500",
+          "period": "/month starting",
+          "features": [
+            "All Startup plan benefits",
+            "Tax strategy consulting",
+            "Financial statement preparation",
+            "HR support services",
+            "Priority support",
+            "Monthly review meetings"
+          ],
+          "cta": "Contact Us"
+        },
+        "enterprise": {
+          "name": "Enterprise",
+          "description": "Large enterprises",
+          "price": "Custom Quote",
+          "period": "",
+          "features": [
+            "All Growth plan benefits",
+            "Dedicated account manager",
+            "M&A advisory",
+            "International tax consulting",
+            "24/7 support",
+            "Customized solutions"
+          ],
+          "cta": "Contact Us"
+        }
+      }
+    },
+    "cta": {
+      "title": "Consult with Experts Today",
+      "description": "Take the first step toward successful U.S. expansion\nwith a free consultation",
+      "button": "Schedule Consultation"
+    }
+  },
+
+  "contact": {
+    "hero": {
+      "title": "Contact Us",
+      "subtitle": "Every step of your U.S. expansion, with expert guidance."
+    },
+    "form": {
+      "title": "Request Consultation",
+      "description": "Take the first step toward successful U.S. expansion for your company.",
+      "responseTime": "Our professional CPA group will contact you within 24 business hours.",
+      "fields": {
+        "name": "Name",
+        "email": "Email",
+        "phone": "Phone",
+        "residency": "Residency",
+        "residencyOptions": {
+          "us": "United States",
+          "overseas": "Overseas (including Korea)"
+        },
+        "location": "Desired Service Location",
+        "locations": {
+          "nc": "North Carolina",
+          "ny-nj": "New York • New Jersey",
+          "seattle": "Seattle",
+          "ca": "California",
+          "tx": "Texas",
+          "philadelphia": "Philadelphia",
+          "other": "Other"
+        },
+        "message": "Message",
+        "messagePlaceholder": "Please describe your inquiry in detail.\nExample: Business sector, expansion timeline, required services, etc."
+      },
+      "submit": {
+        "button": "Request Consultation",
+        "submitting": "Submitting...",
+        "success": "Submitted Successfully"
+      }
+    },
+    "info": {
+      "process": {
+        "title": "Consultation Process",
+        "steps": [
+          "Online consultation request",
+          "Expert assignment (within 24 hours)",
+          "Initial consultation",
+          "Customized solution proposal"
+        ]
+      },
+      "services": {
+        "title": "Main Services",
+        "items": [
+          "Business Formation & Operations",
+          "Tax Planning & Strategy",
+          "Accounting & Financial Management",
+          "Business Consulting",
+          "HR & Payroll Management",
+          "Custom IT Solutions"
+        ]
+      },
+      "locations": {
+        "title": "Service Locations"
+      },
+      "benefits": {
+        "title": "Why Choose Us?",
+        "experience": "Professional Experience",
+        "cases": "Success Cases",
+        "experts": "Expert Staff",
+        "response": "Response Time",
+        "yearsPlus": "15+ years",
+        "count": "500+",
+        "multiple": "Multiple",
+        "hours": "24 hours"
+      }
+    }
+  }
+}

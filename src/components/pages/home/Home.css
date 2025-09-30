@@ -87,7 +87,7 @@
   width: 100%;
   height: 100%;
   border-radius: var(--radius-2xl);
-  object-fit: contain;
+  object-fit: cover;
 }
 
 .home-hero-text-wrapper {

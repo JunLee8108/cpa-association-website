@@ -1,38 +1,47 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useNavigate, useLocation } from "react-router";
 import { Menu, X, ChevronDown, Globe } from "lucide-react";
+import useLanguageStore from "../../stores/useLanguageStore";
+import useTranslation from "../../hooks/useTranslation";
 import "./Navbar.css";
 
-// Name Changed
 const Navbar = () => {
   const navigate = useNavigate();
   const { pathname } = useLocation();
+
+  // 다국어 지원
+  const { t, currentLanguage } = useTranslation();
+  const { getCurrentLanguageInfo } = useLanguageStore();
 
   const [isScrolled, setIsScrolled] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState(null);
+  const [isLanguageOpen, setIsLanguageOpen] = useState(false);
 
   const lastScrollY = useRef(0);
   const scrollTimeout = useRef(null);
-  const hideDelay = 250; // Delay before hiding navbar (ms)
+  const languageDropdownRef = useRef(null);
+  const hideDelay = 250;
 
+  // 언어 변경 시 브라우저 언어 초기화
+  useEffect(() => {
+    const { initializeLanguage } = useLanguageStore.getState();
+    initializeLanguage();
+  }, []);
+
+  // 스크롤 핸들러
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
-
-      // Add background when scrolled more than 50px
       setIsScrolled(currentScrollY > 50);
 
-      // Show/hide logic with sensitivity control
       if (currentScrollY < lastScrollY.current) {
-        // Scrolling up - show immediately
         setIsVisible(true);
         if (scrollTimeout.current) {
           clearTimeout(scrollTimeout.current);
         }
       } else if (currentScrollY > lastScrollY.current && currentScrollY > 100) {
-        // Scrolling down - hide with delay
         if (scrollTimeout.current) {
           clearTimeout(scrollTimeout.current);
         }
@@ -53,7 +62,7 @@ const Navbar = () => {
     };
   }, []);
 
-  // Prevent body scroll when mobile menu is open
+  // 모바일 메뉴 열릴 때 스크롤 방지
   useEffect(() => {
     if (isMobileMenuOpen) {
       document.body.style.overflow = "hidden";
@@ -66,32 +75,50 @@ const Navbar = () => {
     };
   }, [isMobileMenuOpen]);
 
+  // 언어 드롭다운 외부 클릭 감지
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (
+        languageDropdownRef.current &&
+        !languageDropdownRef.current.contains(event.target)
+      ) {
+        setIsLanguageOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
+  // 동적으로 번역된 네비게이션 아이템
   const navItems = [
     {
-      label: "회사소개",
+      label: t("nav.about"),
       href: "#about",
       dropdown: [
-        { label: "전문가 소개", href: "#team", path: "" },
-        { label: "우리의 가치", href: "#values", path: "" },
-        { label: "연혁", href: "#history", path: "" },
+        { label: t("nav.dropdown.team"), href: "#team", path: "" },
+        { label: t("nav.dropdown.values"), href: "#values", path: "" },
       ],
     },
     {
-      label: "서비스",
+      label: t("nav.services"),
       href: "",
       path: "/services",
       dropdown: [
-        { label: "법인 설립", href: "#incorporation", path: "" },
-        { label: "세무 신고", href: "#audit", path: "" },
-        { label: "회계 & 재무 관리", href: "#cfo", path: "" },
-        { label: "비즈니스 컨설팅", href: "#payroll", path: "" },
-        { label: "HR 및 급여 관리", href: "#payroll", path: "" },
-        { label: "IT 솔루션", href: "#payroll", path: "" },
+        {
+          label: t("nav.dropdown.incorporation"),
+          href: "#incorporation",
+          path: "",
+        },
+        { label: t("nav.dropdown.tax"), href: "#audit", path: "" },
+        { label: t("nav.dropdown.accounting"), href: "#cfo", path: "" },
+        { label: t("nav.dropdown.consulting"), href: "#payroll", path: "" },
+        { label: t("nav.dropdown.hr"), href: "#hr", path: "" },
+        { label: t("nav.dropdown.it"), href: "#it", path: "" },
       ],
     },
-    { label: "프로세스", href: "#process", path: "" },
-    { label: "성공사례", href: "#cases", path: "" },
-    { label: "문의하기", href: "#contact", isButton: true, path: "/contact" },
+    { label: t("nav.cases"), href: "#cases", path: "" },
+    { label: t("nav.contact"), href: "", isButton: true, path: "/contact" },
   ];
 
   const handleMobileMenuToggle = () => {
@@ -99,11 +126,18 @@ const Navbar = () => {
   };
 
   const handleNavigation = (path) => {
-    // 이미 같은 경로에 있으면 무시
+    setIsMobileMenuOpen(false);
     if (pathname === path) return;
-
     navigate(path);
   };
+
+  const handleLanguageChange = (lang) => {
+    const { setLanguage } = useLanguageStore.getState();
+    setLanguage(lang);
+    setIsLanguageOpen(false);
+  };
+
+  const currentLanguageInfo = getCurrentLanguageInfo();
 
   return (
     <nav
@@ -126,6 +160,52 @@ const Navbar = () => {
         {/* Desktop Navigation */}
         <div className="navbar-desktop">
           <ul className="navbar-menu">
+            {/* Language Selector - Desktop */}
+            <li
+              className="navbar-menu-item language-selector-wrapper"
+              ref={languageDropdownRef}
+            >
+              <button
+                className="navbar-language-button"
+                onClick={() => setIsLanguageOpen(!isLanguageOpen)}
+                aria-label="Change language"
+              >
+                <Globe size={18} />
+                <span>{currentLanguageInfo?.shortLabel}</span>
+                <ChevronDown
+                  size={14}
+                  className={`navbar-language-icon ${
+                    isLanguageOpen ? "active" : ""
+                  }`}
+                />
+              </button>
+
+              <div
+                className={`navbar-language-dropdown ${
+                  isLanguageOpen ? "active" : ""
+                }`}
+              >
+                <button
+                  className={`navbar-language-option ${
+                    currentLanguage === "ko" ? "active" : ""
+                  }`}
+                  onClick={() => handleLanguageChange("ko")}
+                >
+                  <span className="language-flag">🇰🇷</span>
+                  <span>한국어</span>
+                </button>
+                <button
+                  className={`navbar-language-option ${
+                    currentLanguage === "en" ? "active" : ""
+                  }`}
+                  onClick={() => handleLanguageChange("en")}
+                >
+                  <span className="language-flag">🇺🇸</span>
+                  <span>English</span>
+                </button>
+              </div>
+            </li>
+
             {navItems.map((item, index) => (
               <li
                 key={index}
@@ -169,6 +249,9 @@ const Navbar = () => {
                             key={dropIndex}
                             href={dropItem.href}
                             className="navbar-dropdown-item"
+                            onClick={() =>
+                              dropItem.path && handleNavigation(dropItem.path)
+                            }
                           >
                             {dropItem.label}
                           </a>
@@ -195,6 +278,32 @@ const Navbar = () => {
       {/* Mobile Navigation */}
       <div className={`navbar-mobile-menu ${isMobileMenuOpen ? "active" : ""}`}>
         <div className="navbar-mobile-content">
+          {/* Mobile Language Selector */}
+          <div className="navbar-mobile-language">
+            <div className="navbar-mobile-language-header">
+              <Globe size={20} />
+              <span>{currentLanguage === "ko" ? "언어 선택" : "Language"}</span>
+            </div>
+            <div className="navbar-mobile-language-buttons">
+              <button
+                className={`navbar-mobile-language-btn ${
+                  currentLanguage === "ko" ? "active" : ""
+                }`}
+                onClick={() => handleLanguageChange("ko")}
+              >
+                한국어
+              </button>
+              <button
+                className={`navbar-mobile-language-btn ${
+                  currentLanguage === "en" ? "active" : ""
+                }`}
+                onClick={() => handleLanguageChange("en")}
+              >
+                English
+              </button>
+            </div>
+          </div>
+
           {/* Mobile Menu Items */}
           <ul className="navbar-mobile-nav">
             {navItems.map((item, index) => (
@@ -227,10 +336,7 @@ const Navbar = () => {
                           key={dropIndex}
                           href={dropItem.href}
                           className="navbar-mobile-dropdown-item"
-                          onClick={() => {
-                            setIsMobileMenuOpen(false);
-                            handleNavigation(item.path);
-                          }}
+                          onClick={() => handleNavigation(item.path)}
                         >
                           {dropItem.label}
                         </a>
@@ -239,12 +345,8 @@ const Navbar = () => {
                   </div>
                 ) : item.isButton ? (
                   <a
-                    href={item.href}
                     className="navbar-mobile-cta"
-                    onClick={() => {
-                      setIsMobileMenuOpen(false);
-                      handleNavigation(item.path);
-                    }}
+                    onClick={() => handleNavigation(item.path)}
                   >
                     {item.label}
                   </a>
@@ -252,10 +354,7 @@ const Navbar = () => {
                   <a
                     href={item.href}
                     className="navbar-mobile-link"
-                    onClick={() => {
-                      setIsMobileMenuOpen(false);
-                      handleNavigation(item.path);
-                    }}
+                    onClick={() => handleNavigation(item.path)}
                   >
                     {item.label}
                   </a>

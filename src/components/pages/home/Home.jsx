@@ -1,16 +1,16 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useMemo } from "react";
 import { useNavigate, useLocation } from "react-router";
 import { Clock, Package, Globe, MapPin, Check } from "lucide-react";
+import useTranslation from "../../hooks/useTranslation";
 import "./Home.css";
 
 const Home = () => {
   const navigate = useNavigate();
   const { pathname } = useLocation();
+  const { t, currentLanguage } = useTranslation();
 
   const handleNavigation = (path) => {
-    // 이미 같은 경로에 있으면 무시
     if (pathname === path) return;
-
     navigate(path);
   };
 
@@ -33,19 +33,51 @@ const Home = () => {
   const casesCardsRef = useRef([]);
   const casesCtaRef = useRef(null);
 
+  // Memoized service items to avoid re-rendering
+  const serviceItems = useMemo(() => {
+    return ["incorporation", "tax", "accounting", "consulting", "hr", "it"].map(
+      (key, index) => ({
+        key,
+        number: String(index + 1).padStart(2, "0"),
+        title: t(`home.services.items.${key}.title`),
+        description: t(`home.services.items.${key}.description`),
+        features: t(`home.services.items.${key}.features`) || [],
+        image: `/service-${
+          index === 0 ? 3 : index === 4 ? 6 : index === 5 ? 5 : index + 1
+        }.jpg`,
+        imagePosition:
+          index === 0 || index === 4 || index === 5 ? "top" : "center",
+      })
+    );
+  }, [t, currentLanguage]);
+
+  // Process steps data
+  const processSteps = useMemo(() => {
+    return ["consultation", "analysis", "execution", "support"].map((key) => ({
+      key,
+      number: t(`home.process.steps.${key}.number`),
+      title: t(`home.process.steps.${key}.title`),
+      description: t(`home.process.steps.${key}.description`),
+      items: t(`home.process.steps.${key}.items`) || [],
+      duration: t(`home.process.steps.${key}.duration`),
+    }));
+  }, [t, currentLanguage]);
+
+  // Location states
+  const locationStates = useMemo(() => {
+    return t("home.location.states") || [];
+  }, [t, currentLanguage]);
+
   useEffect(() => {
-    // Intersection Observer 설정
     const observerOptions = {
       threshold: 0.1,
       rootMargin: "0px 0px -50px 0px",
     };
 
-    // 애니메이션 클래스 추가 함수
     const handleIntersection = (entries, observer) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           entry.target.classList.add("animate-in");
-          // 한 번만 애니메이션 실행
           observer.unobserve(entry.target);
         }
       });
@@ -56,7 +88,7 @@ const Home = () => {
       observerOptions
     );
 
-    // Hero 섹션 요소들 관찰
+    // Observe all elements
     const heroElements = [
       heroTitleRef.current,
       heroSubtitleRef.current,
@@ -71,12 +103,22 @@ const Home = () => {
       }
     });
 
-    // About 섹션 헤더 관찰
-    if (sectionHeaderRef.current) {
-      observer.observe(sectionHeaderRef.current);
+    if (sectionHeaderRef.current) observer.observe(sectionHeaderRef.current);
+    if (servicesHeaderRef.current) observer.observe(servicesHeaderRef.current);
+    if (processHeaderRef.current) observer.observe(processHeaderRef.current);
+    if (locationHeaderRef.current) observer.observe(locationHeaderRef.current);
+    if (casesHeaderRef.current) observer.observe(casesHeaderRef.current);
+    if (ctaSectionRef.current) observer.observe(ctaSectionRef.current);
+    if (casesCtaRef.current) observer.observe(casesCtaRef.current);
+    if (locationMapRef.current) {
+      locationMapRef.current.style.animationDelay = "0.1s";
+      observer.observe(locationMapRef.current);
+    }
+    if (locationInfoRef.current) {
+      locationInfoRef.current.style.animationDelay = "0.2s";
+      observer.observe(locationInfoRef.current);
     }
 
-    // About 카드들 관찰 (스태거 애니메이션)
     aboutCardsRef.current.forEach((card, index) => {
       if (card) {
         card.style.animationDelay = `${index * 0.08}s`;
@@ -84,16 +126,6 @@ const Home = () => {
       }
     });
 
-    // CTA 섹션 관찰
-    if (ctaSectionRef.current) {
-      observer.observe(ctaSectionRef.current);
-    }
-
-    if (servicesHeaderRef.current) {
-      observer.observe(servicesHeaderRef.current);
-    }
-
-    // Services 카드들 관찰 (스태거 애니메이션)
     servicesCardsRef.current.forEach((card, index) => {
       if (card) {
         card.style.animationDelay = `${index * 0.1}s`;
@@ -101,16 +133,6 @@ const Home = () => {
       }
     });
 
-    if (casesHeaderRef.current) {
-      observer.observe(casesHeaderRef.current);
-    }
-
-    // Process 섹션 헤더 관찰
-    if (processHeaderRef.current) {
-      observer.observe(processHeaderRef.current);
-    }
-
-    // Process 스텝들 관찰 (스태거 애니메이션)
     processStepsRef.current.forEach((step, index) => {
       if (step) {
         step.style.animationDelay = `${index * 0.12}s`;
@@ -118,24 +140,6 @@ const Home = () => {
       }
     });
 
-    // Location 섹션 헤더 관찰
-    if (locationHeaderRef.current) {
-      observer.observe(locationHeaderRef.current);
-    }
-
-    // Location 맵 관찰
-    if (locationMapRef.current) {
-      locationMapRef.current.style.animationDelay = "0.1s";
-      observer.observe(locationMapRef.current);
-    }
-
-    // Location 정보 관찰
-    if (locationInfoRef.current) {
-      locationInfoRef.current.style.animationDelay = "0.2s";
-      observer.observe(locationInfoRef.current);
-    }
-
-    // Case Studies 카드들 관찰 (스태거 애니메이션)
     casesCardsRef.current.forEach((card, index) => {
       if (card) {
         card.style.animationDelay = `${index * 0.15}s`;
@@ -143,16 +147,18 @@ const Home = () => {
       }
     });
 
-    // Case Studies CTA 관찰
-    if (casesCtaRef.current) {
-      observer.observe(casesCtaRef.current);
-    }
-
-    // Cleanup
     return () => {
       observer.disconnect();
     };
   }, []);
+
+  // Parse hero title for highlighting
+  const heroTitle = t("home.hero.title");
+  const titleParts = heroTitle.split(" ");
+  const highlightIndex =
+    currentLanguage === "ko"
+      ? 2
+      : titleParts.findIndex((word) => word.toLowerCase().includes("partner"));
 
   return (
     <div className="home-container">
@@ -167,66 +173,65 @@ const Home = () => {
               <div className="home-hero-left">
                 <div className="home-hero-text-wrapper">
                   <h1 ref={heroTitleRef} className="home-hero-title fade-up">
-                    미국 진출의{" "}
-                    <span className="home-hero-highlight">든든한 파트너</span>
+                    {currentLanguage === "ko" ? (
+                      <>
+                        {titleParts.slice(0, highlightIndex).join(" ")}{" "}
+                        <span className="home-hero-highlight">
+                          {titleParts.slice(highlightIndex).join(" ")}
+                        </span>
+                      </>
+                    ) : (
+                      heroTitle
+                    )}
                   </h1>
                   <p
                     ref={heroSubtitleRef}
                     className="home-hero-subtitle fade-up"
                   >
-                    {/* 한인 회계사 6인이 함께하는 전문 CPA 그룹 */}
-                    회계•세무•비즈니스 토탈 전문가 솔루션
+                    {t("home.hero.subtitle")}
                   </p>
                   <p
                     ref={heroDescriptionRef}
                     className="home-hero-description fade-up"
                   >
-                    복잡한 미국 세무·회계 문제를 명확하게 해결해드립니다.
-                    <br />
-                    한국 기업의 성공적인 미국 시장 진출을 위한 맞춤형 솔루션을
-                    제공합니다.
+                    {t("home.hero.description")
+                      .split(". ")
+                      .map((sentence, idx, arr) => (
+                        <React.Fragment key={idx}>
+                          {sentence}
+                          {idx < arr.length - 1 && "."}
+                          {idx < arr.length - 1 && <br />}
+                        </React.Fragment>
+                      ))}
                   </p>
                   <div
                     ref={heroCtaRef}
                     className="home-hero-cta-wrapper fade-up"
                   >
-                    <button className="home-hero-cta-secondary">
-                      서비스 소개
+                    <button
+                      className="home-hero-cta-secondary"
+                      onClick={() => handleNavigation("/services")}
+                    >
+                      {t("home.hero.cta.secondary")}
                     </button>
                     <button
                       className="home-hero-cta-primary"
                       onClick={() => handleNavigation("/contact")}
                     >
-                      상담 신청하기
+                      {t("home.hero.cta.primary")}
                     </button>
                   </div>
                 </div>
-                {/* <div className="home-hero-stats">
-                  <div className="home-hero-stat-item">
-                    <span className="home-hero-stat-number">500+</span>
-                    <span className="home-hero-stat-label">
-                      성공적인 미국 진출 기업
-                    </span>
-                  </div>
-                  <div className="home-hero-stat-divider"></div>
-                  <div className="home-hero-stat-item">
-                    <span className="home-hero-stat-number">15년</span>
-                    <span className="home-hero-stat-label">누적 전문 경험</span>
-                  </div>
-                  <div className="home-hero-stat-divider"></div>
-                  <div className="home-hero-stat-item">
-                    <span className="home-hero-stat-number">6명</span>
-                    <span className="home-hero-stat-label">
-                      전문 CPA 회계사
-                    </span>
-                  </div>
-                </div> */}
               </div>
               <div className="home-hero-right">
                 <div className="home-hero-image-wrapper">
                   <img
                     src="/hero.png"
-                    alt="미국 비즈니스 컨설팅"
+                    alt={
+                      currentLanguage === "ko"
+                        ? "미국 비즈니스 컨설팅"
+                        : "US Business Consulting"
+                    }
                     className="home-hero-image"
                   />
                 </div>
@@ -237,28 +242,30 @@ const Home = () => {
       </section>
 
       {/* About Us Section */}
-      <section className="home-about">
+      <section id="about" className="home-about">
         <div className="container">
           <div ref={sectionHeaderRef} className="home-about-header fade-up">
-            <span className="home-section-tag">About Us</span>
+            <span className="home-section-tag">{t("home.about.tag")}</span>
             <h2 className="home-section-title">
-              한국 기업을 위한
+              {t("home.about.title")}
               <br />
               <span className="home-section-highlight">
-                미국 비즈니스 전문가 그룹
+                {t("home.about.titleHighlight")}
               </span>
             </h2>
             <p className="home-section-description">
-              한국 기업의 특성을 깊이 이해하고, 미국 비즈니스 환경에 정통한
-              저희가
-              <br />
-              여러분의 성공적인 미국 진출을 위한 최적의 파트너가
-              되어드리겠습니다.
+              {currentLanguage === "ko" ? (
+                <>
+                  {t("home.about.description").split(", ")[0]},
+                  <br />
+                  {t("home.about.description").split(", ").slice(1).join(", ")}
+                </>
+              ) : (
+                t("home.about.description")
+              )}
             </p>
             <p className="home-section-description-mobile">
-              한국 기업의 특성을 깊이 이해하고, 미국 비즈니스 환경에 정통한
-              저희가 여러분의 성공적인 미국 진출을 위한 최적의 파트너가
-              되어드리겠습니다.
+              {t("home.about.description")}
             </p>
           </div>
 
@@ -270,10 +277,11 @@ const Home = () => {
               <div className="home-about-card-icon">
                 <Clock size={32} strokeWidth={1.5} />
               </div>
-              <h3 className="home-about-card-title">15년 이상의 전문성</h3>
+              <h3 className="home-about-card-title">
+                {t("home.about.cards.experience.title")}
+              </h3>
               <p className="home-about-card-description">
-                미국 시장에서 15년 이상 축적된 경험과 노하우로 한국 기업의
-                특성에 맞는 맞춤형 서비스를 제공합니다.
+                {t("home.about.cards.experience.description")}
               </p>
             </div>
 
@@ -284,10 +292,11 @@ const Home = () => {
               <div className="home-about-card-icon">
                 <Package size={32} strokeWidth={1.5} />
               </div>
-              <h3 className="home-about-card-title">원스톱 솔루션</h3>
+              <h3 className="home-about-card-title">
+                {t("home.about.cards.onestop.title")}
+              </h3>
               <p className="home-about-card-description">
-                회사 설립부터 세무 신고, 회계 감사, 컨설팅까지 미국 비즈니스에
-                필요한 모든 서비스를 한 곳에서 해결합니다.
+                {t("home.about.cards.onestop.description")}
               </p>
             </div>
 
@@ -298,26 +307,27 @@ const Home = () => {
               <div className="home-about-card-icon">
                 <Globe size={32} strokeWidth={1.5} />
               </div>
-              <h3 className="home-about-card-title">글로벌 네트워크</h3>
+              <h3 className="home-about-card-title">
+                {t("home.about.cards.network.title")}
+              </h3>
               <p className="home-about-card-description">
-                뉴욕, 시애틀, 텍사스, 필라델피아 등 미국 주요 도시의 전문가
-                네트워크를 통해 현지 맞춤형 지원을 제공합니다.
+                {t("home.about.cards.network.description")}
               </p>
             </div>
           </div>
 
           <div ref={ctaSectionRef} className="home-about-cta scale-in">
             <h3 className="home-about-cta-title">
-              지금 바로 미국 진출의 첫걸음을 시작하세요
+              {t("home.about.cta.title")}
             </h3>
             <p className="home-about-cta-description">
-              무료 상담을 통해 귀사에 최적화된 미국 진출 전략을 제안해드립니다.
+              {t("home.about.cta.description")}
             </p>
             <button
               className="home-about-cta-button"
               onClick={() => handleNavigation("/contact")}
             >
-              전문가와 상담하기
+              {t("home.about.cta.button")}
             </button>
           </div>
         </div>
@@ -327,296 +337,76 @@ const Home = () => {
       <section className="home-services">
         <div className="container">
           <div ref={servicesHeaderRef} className="home-services-header fade-up">
-            <span className="home-section-tag">Services</span>
+            <span className="home-section-tag">{t("home.services.tag")}</span>
             <h2 className="home-section-title">
-              완벽한 서비스로
-              <span className="home-section-highlight">함께하는 미국 진출</span>
+              {t("home.services.title")}
+              <span className="home-section-highlight">
+                {t("home.services.titleHighlight")}
+              </span>
             </h2>
             <p className="home-section-description">
-              회사 설립부터 세무 관리까지, 각 분야의 전문가가 통합 솔루션을
-              제공합니다.
+              {t("home.services.description")}
             </p>
           </div>
 
           <div className="home-services-grid">
-            <div
-              ref={(el) => (servicesCardsRef.current[0] = el)}
-              className="home-service-item fade-up"
-            >
-              <div className="home-service-image-wrapper">
-                <img
-                  src="/service-3.jpg"
-                  alt="법인 설립 서비스"
-                  className="home-service-image"
-                  style={{ objectPosition: "top" }}
-                />
-                <div className="home-service-overlay">
-                  <span className="home-service-number">01</span>
+            {serviceItems.map((service, index) => (
+              <div
+                key={service.key}
+                ref={(el) => (servicesCardsRef.current[index] = el)}
+                className="home-service-item fade-up"
+              >
+                <div className="home-service-image-wrapper">
+                  <img
+                    src={service.image}
+                    alt={service.title}
+                    className="home-service-image"
+                    style={{ objectPosition: service.imagePosition }}
+                  />
+                  <div className="home-service-overlay">
+                    <span className="home-service-number">
+                      {service.number}
+                    </span>
+                  </div>
+                </div>
+                <div className="home-service-content">
+                  <h3 className="home-service-title">{service.title}</h3>
+                  <p className="home-service-description">
+                    {service.description}
+                  </p>
+                  <ul className="home-service-features">
+                    {service.features.map((feature, idx) => (
+                      <li key={idx}>{feature}</li>
+                    ))}
+                  </ul>
+                  <a
+                    href="#"
+                    className="home-service-link"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      handleNavigation("/services");
+                    }}
+                  >
+                    {t("home.services.viewMore")}
+                    <svg
+                      className="home-service-arrow"
+                      width="20"
+                      height="20"
+                      viewBox="0 0 20 20"
+                      fill="none"
+                    >
+                      <path
+                        d="M7.5 5L12.5 10L7.5 15"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
+                  </a>
                 </div>
               </div>
-              <div className="home-service-content">
-                <h3 className="home-service-title">법인 설립 및 운영</h3>
-                <p className="home-service-description">
-                  비즈니스 목적에 맞는 최적의 법인 형태 선택부터 설립, 운영까지
-                  전 과정을 지원합니다.
-                </p>
-                <ul className="home-service-features">
-                  <li>LLC, C-Corp, S-Corp 설립</li>
-                  <li>EIN 및 라이센스 취득</li>
-                  <li>법인 유지 관리</li>
-                </ul>
-                <a href="#" className="home-service-link">
-                  자세히 보기
-                  <svg
-                    className="home-service-arrow"
-                    width="20"
-                    height="20"
-                    viewBox="0 0 20 20"
-                    fill="none"
-                  >
-                    <path
-                      d="M7.5 5L12.5 10L7.5 15"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
-                </a>
-              </div>
-            </div>
-
-            <div
-              ref={(el) => (servicesCardsRef.current[1] = el)}
-              className="home-service-item fade-up"
-            >
-              <div className="home-service-image-wrapper">
-                <img
-                  src="/service-1.jpg"
-                  alt="세무 서비스"
-                  className="home-service-image"
-                />
-                <div className="home-service-overlay">
-                  <span className="home-service-number">02</span>
-                </div>
-              </div>
-              <div className="home-service-content">
-                <h3 className="home-service-title">세무 신고 및 전략</h3>
-                <p className="home-service-description">
-                  연방세, 주세, 판매세 등 복잡한 미국 세무 체계를 완벽히
-                  이해하고 최적의 절세 전략을 수립합니다.
-                </p>
-                <ul className="home-service-features">
-                  <li>법인세 및 개인소득세 신고</li>
-                  <li>세무 조사 대응</li>
-                  <li>국제 조세 컨설팅</li>
-                </ul>
-                <a href="#" className="home-service-link">
-                  자세히 보기
-                  <svg
-                    className="home-service-arrow"
-                    width="20"
-                    height="20"
-                    viewBox="0 0 20 20"
-                    fill="none"
-                  >
-                    <path
-                      d="M7.5 5L12.5 10L7.5 15"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
-                </a>
-              </div>
-            </div>
-
-            <div
-              ref={(el) => (servicesCardsRef.current[2] = el)}
-              className="home-service-item fade-up"
-            >
-              <div className="home-service-image-wrapper">
-                <img
-                  src="/service-2.jpg"
-                  alt="회계 서비스"
-                  className="home-service-image"
-                />
-                <div className="home-service-overlay">
-                  <span className="home-service-number">03</span>
-                </div>
-              </div>
-              <div className="home-service-content">
-                <h3 className="home-service-title">회계 및 재무 관리</h3>
-                <p className="home-service-description">
-                  GAAP 기준에 따른 정확한 재무제표 작성과 체계적인 회계 관리로
-                  투명한 재무 운영을 지원합니다.
-                </p>
-                <ul className="home-service-features">
-                  <li>재무제표 작성 및 감사</li>
-                  <li>월별 회계 장부 정리</li>
-                  <li>재무 분석 및 리포팅</li>
-                </ul>
-                <a href="#" className="home-service-link">
-                  자세히 보기
-                  <svg
-                    className="home-service-arrow"
-                    width="20"
-                    height="20"
-                    viewBox="0 0 20 20"
-                    fill="none"
-                  >
-                    <path
-                      d="M7.5 5L12.5 10L7.5 15"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
-                </a>
-              </div>
-            </div>
-
-            <div
-              ref={(el) => (servicesCardsRef.current[3] = el)}
-              className="home-service-item fade-up"
-            >
-              <div className="home-service-image-wrapper">
-                <img
-                  src="/service-4.jpg"
-                  alt="비즈니스 컨설팅"
-                  className="home-service-image"
-                />
-                <div className="home-service-overlay">
-                  <span className="home-service-number">04</span>
-                </div>
-              </div>
-              <div className="home-service-content">
-                <h3 className="home-service-title">비즈니스 컨설팅</h3>
-                <p className="home-service-description">
-                  미국 시장 진출 전략 수립부터 현지화, 성장 전략까지 단계별 맞춤
-                  컨설팅을 제공합니다.
-                </p>
-                <ul className="home-service-features">
-                  <li>시장 진출 전략 수립</li>
-                  <li>M&A 및 투자 자문</li>
-                  <li>비즈니스 프로세스 최적화</li>
-                </ul>
-                <a href="#" className="home-service-link">
-                  자세히 보기
-                  <svg
-                    className="home-service-arrow"
-                    width="20"
-                    height="20"
-                    viewBox="0 0 20 20"
-                    fill="none"
-                  >
-                    <path
-                      d="M7.5 5L12.5 10L7.5 15"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
-                </a>
-              </div>
-            </div>
-
-            <div
-              ref={(el) => (servicesCardsRef.current[4] = el)}
-              className="home-service-item fade-up"
-            >
-              <div className="home-service-image-wrapper">
-                <img
-                  src="/service-6.jpg"
-                  alt="법인 설립 서비스"
-                  className="home-service-image"
-                  style={{ objectPosition: "top" }}
-                />
-                <div className="home-service-overlay">
-                  <span className="home-service-number">05</span>
-                </div>
-              </div>
-              <div className="home-service-content">
-                <h3 className="home-service-title">HR 및 급여 관리</h3>
-                <p className="home-service-description">
-                  미국 노동법 준수와 체계적인 인사 관리로 안정적인 조직 운영과
-                  성장을 지원합니다.
-                </p>
-                <ul className="home-service-features">
-                  <li>HR 정책 수립 </li>
-                  <li>급여 처리 및 Payroll 시스템 운영</li>
-                  <li>직원 복리후생 설계 (401k, 건강보험)</li>
-                </ul>
-                <a href="#" className="home-service-link">
-                  자세히 보기
-                  <svg
-                    className="home-service-arrow"
-                    width="20"
-                    height="20"
-                    viewBox="0 0 20 20"
-                    fill="none"
-                  >
-                    <path
-                      d="M7.5 5L12.5 10L7.5 15"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
-                </a>
-              </div>
-            </div>
-
-            <div
-              ref={(el) => (servicesCardsRef.current[5] = el)}
-              className="home-service-item fade-up"
-            >
-              <div className="home-service-image-wrapper">
-                <img
-                  src="/service-5.jpg"
-                  alt="법인 설립 서비스"
-                  className="home-service-image"
-                  style={{ objectPosition: "top" }}
-                />
-                <div className="home-service-overlay">
-                  <span className="home-service-number">06</span>
-                </div>
-              </div>
-              <div className="home-service-content">
-                <h3 className="home-service-title">IT 솔루션 구축</h3>
-                <p className="home-service-description">
-                  효율적인 비즈니스 운영을 위한 핵심 시스템 도입과 최적화를 통해
-                  업무 생산성을 극대화합니다.
-                </p>
-                <ul className="home-service-features">
-                  <li>Microsoft 365 라이센스 공급 및 관리</li>
-                  <li>CRM 도입 및 커스터마이징</li>
-                  <li>프로세스 자동화</li>
-                </ul>
-                <a href="#" className="home-service-link">
-                  자세히 보기
-                  <svg
-                    className="home-service-arrow"
-                    width="20"
-                    height="20"
-                    viewBox="0 0 20 20"
-                    fill="none"
-                  >
-                    <path
-                      d="M7.5 5L12.5 10L7.5 15"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
-                </a>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
@@ -625,191 +415,65 @@ const Home = () => {
       <section className="home-process">
         <div className="container">
           <div ref={processHeaderRef} className="home-process-header fade-up">
-            <span className="home-section-tag">Process</span>
+            <span className="home-section-tag">{t("home.process.tag")}</span>
             <h2 className="home-section-title">
-              확실한 성과를 위한
+              {t("home.process.title")}
               <span className="home-section-highlight">
-                체계적인 4단계 프로세스
+                {t("home.process.titleHighlight")}
               </span>
             </h2>
             <p className="home-section-description">
-              초기 상담부터 지속적인 지원까지, 모든 단계에서 전문가가
-              함께합니다.
+              {t("home.process.description")}
             </p>
           </div>
 
           <div className="home-process-timeline">
-            {/* Step 1 */}
-            <div
-              ref={(el) => (processStepsRef.current[0] = el)}
-              className="home-process-step fade-up"
-            >
-              <div className="home-process-step-number">
-                <span>01</span>
-                <div className="home-process-step-line"></div>
-              </div>
+            {processSteps.map((step, index) => (
+              <div
+                key={step.key}
+                ref={(el) => (processStepsRef.current[index] = el)}
+                className="home-process-step fade-up"
+              >
+                <div className="home-process-step-number">
+                  <span>{step.number}</span>
+                  {index < processSteps.length - 1 && (
+                    <div className="home-process-step-line"></div>
+                  )}
+                </div>
 
-              <div className="home-process-step-content">
-                <h3 className="home-process-step-title">무료 상담</h3>
-                <p className="home-process-step-description">
-                  귀사의 비즈니스 목표와 미국 진출 계획을 상세히 파악합니다.
-                </p>
+                <div className="home-process-step-content">
+                  <h3 className="home-process-step-title">{step.title}</h3>
+                  <p className="home-process-step-description">
+                    {step.description}
+                  </p>
 
-                <ul className="home-process-step-list">
-                  <li>비즈니스 모델 분석</li>
-                  <li>진출 목표 설정</li>
-                  <li>예상 일정 수립</li>
-                </ul>
+                  <ul className="home-process-step-list">
+                    {step.items.map((item, idx) => (
+                      <li key={idx}>{item}</li>
+                    ))}
+                  </ul>
 
-                <div className="home-process-step-duration">
-                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                    <circle
-                      cx="8"
-                      cy="8"
-                      r="7"
-                      stroke="var(--gray-400)"
-                      strokeWidth="1.5"
-                    />
-                    <path
-                      d="M8 4V8L10.5 10.5"
-                      stroke="var(--gray-400)"
-                      strokeWidth="1.5"
-                      strokeLinecap="round"
-                    />
-                  </svg>
-                  <span>1-2일 소요</span>
+                  <div className="home-process-step-duration">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                      <circle
+                        cx="8"
+                        cy="8"
+                        r="7"
+                        stroke="var(--gray-400)"
+                        strokeWidth="1.5"
+                      />
+                      <path
+                        d="M8 4V8L10.5 10.5"
+                        stroke="var(--gray-400)"
+                        strokeWidth="1.5"
+                        strokeLinecap="round"
+                      />
+                    </svg>
+                    <span>{step.duration}</span>
+                  </div>
                 </div>
               </div>
-            </div>
-
-            {/* Step 2 */}
-            <div
-              ref={(el) => (processStepsRef.current[1] = el)}
-              className="home-process-step fade-up"
-            >
-              <div className="home-process-step-number">
-                <span>02</span>
-                <div className="home-process-step-line"></div>
-              </div>
-
-              <div className="home-process-step-content">
-                <h3 className="home-process-step-title">심층 분석</h3>
-                <p className="home-process-step-description">
-                  현재 상황을 정밀 분석하고 최적의 진출 전략을 수립합니다.
-                </p>
-
-                <ul className="home-process-step-list">
-                  <li>세무 구조 분석</li>
-                  <li>법인 형태 검토</li>
-                  <li>리스크 평가</li>
-                </ul>
-
-                <div className="home-process-step-duration">
-                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                    <circle
-                      cx="8"
-                      cy="8"
-                      r="7"
-                      stroke="var(--gray-400)"
-                      strokeWidth="1.5"
-                    />
-                    <path
-                      d="M8 4V8L10.5 10.5"
-                      stroke="var(--gray-400)"
-                      strokeWidth="1.5"
-                      strokeLinecap="round"
-                    />
-                  </svg>
-                  <span>1-2주 소요</span>
-                </div>
-              </div>
-            </div>
-
-            {/* Step 3 */}
-            <div
-              ref={(el) => (processStepsRef.current[2] = el)}
-              className="home-process-step fade-up"
-            >
-              <div className="home-process-step-number">
-                <span>03</span>
-                <div className="home-process-step-line"></div>
-              </div>
-
-              <div className="home-process-step-content">
-                <h3 className="home-process-step-title">전략 실행</h3>
-                <p className="home-process-step-description">
-                  수립된 전략에 따라 법인 설립부터 운영까지 실행합니다.
-                </p>
-
-                <ul className="home-process-step-list">
-                  <li>법인 설립 진행</li>
-                  <li>세무 등록 완료</li>
-                  <li>운영 체계 구축</li>
-                </ul>
-
-                <div className="home-process-step-duration">
-                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                    <circle
-                      cx="8"
-                      cy="8"
-                      r="7"
-                      stroke="var(--gray-400)"
-                      strokeWidth="1.5"
-                    />
-                    <path
-                      d="M8 4V8L10.5 10.5"
-                      stroke="var(--gray-400)"
-                      strokeWidth="1.5"
-                      strokeLinecap="round"
-                    />
-                  </svg>
-                  <span>2-4주 소요</span>
-                </div>
-              </div>
-            </div>
-
-            {/* Step 4 */}
-            <div
-              ref={(el) => (processStepsRef.current[3] = el)}
-              className="home-process-step fade-up"
-            >
-              <div className="home-process-step-number">
-                <span>04</span>
-                <div className="home-process-step-line home-process-step-line-last"></div>
-              </div>
-
-              <div className="home-process-step-content">
-                <h3 className="home-process-step-title">지속 지원</h3>
-                <p className="home-process-step-description">
-                  안정적인 운영을 위한 지속적인 관리와 지원을 제공합니다.
-                </p>
-
-                <ul className="home-process-step-list">
-                  <li>정기 세무 신고</li>
-                  <li>회계 관리 지원</li>
-                  <li>컨설팅 서비스</li>
-                </ul>
-
-                <div className="home-process-step-duration">
-                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                    <circle
-                      cx="8"
-                      cy="8"
-                      r="7"
-                      stroke="var(--gray-400)"
-                      strokeWidth="1.5"
-                    />
-                    <path
-                      d="M8 4V8L10.5 10.5"
-                      stroke="var(--gray-400)"
-                      strokeWidth="1.5"
-                      strokeLinecap="round"
-                    />
-                  </svg>
-                  <span>연중 지속</span>
-                </div>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
@@ -818,17 +482,23 @@ const Home = () => {
       <section className="home-location">
         <div className="container">
           <div ref={locationHeaderRef} className="home-location-header fade-up">
-            <span className="home-section-tag">Coverage</span>
+            <span className="home-section-tag">{t("home.location.tag")}</span>
             <h2 className="home-section-title">
-              미국 전역을 커버하는
+              {t("home.location.title")}
               <span className="home-section-highlight">
-                전문 네트워크 시스템
+                {t("home.location.titleHighlight")}
               </span>
             </h2>
             <p className="home-section-description">
-              각 주마다 다른 세무 규정, 어디로 진출해야 할지 고민이신가요?
-              <br />
-              주요 비즈니스 거점에서 현지 맞춤형 전문 서비스를 제공합니다.
+              {currentLanguage === "ko" ? (
+                <>
+                  {t("home.location.description").split("? ")[0]}?
+                  <br />
+                  {t("home.location.description").split("? ")[1]}
+                </>
+              ) : (
+                t("home.location.description")
+              )}
             </p>
           </div>
 
@@ -836,7 +506,11 @@ const Home = () => {
             <div ref={locationMapRef} className="home-location-map fade-up">
               <img
                 src="/hero.png"
-                alt="미국 서비스 지역"
+                alt={
+                  currentLanguage === "ko"
+                    ? "미국 서비스 지역"
+                    : "US Service Areas"
+                }
                 className="home-location-map-image"
               />
             </div>
@@ -845,61 +519,22 @@ const Home = () => {
               <div>
                 <div className="home-location-badge">
                   <MapPin size={16} />
-                  <span>6개 주요 거점</span>
+                  <span>{t("home.location.badge")}</span>
                 </div>
                 <p className="home-location-description-main">
-                  텍사스의 세금 혜택부터 델라웨어의 법인 설립 장점까지, 각 주 및
-                  도시의 특성을 완벽히 파악한 전문가들이 최적의 진출 전략을
-                  제시합니다.
+                  {t("home.location.mainDescription")}
                 </p>
               </div>
 
               <div className="home-location-states">
-                <div className="home-location-state">
-                  <span className="home-location-state-icon">
-                    <Check size={12} strokeWidth={3} />
-                  </span>
-                  <span className="home-location-state-name">
-                    노스캐롤라이나
-                  </span>
-                </div>
-
-                <div className="home-location-state">
-                  <span className="home-location-state-icon">
-                    <Check size={12} strokeWidth={3} />
-                  </span>
-                  <span className="home-location-state-name">
-                    뉴욕 • 뉴저지
-                  </span>
-                </div>
-
-                <div className="home-location-state">
-                  <span className="home-location-state-icon">
-                    <Check size={12} strokeWidth={3} />
-                  </span>
-                  <span className="home-location-state-name">시애틀</span>
-                </div>
-
-                <div className="home-location-state">
-                  <span className="home-location-state-icon">
-                    <Check size={12} strokeWidth={3} />
-                  </span>
-                  <span className="home-location-state-name">캘리포니아</span>
-                </div>
-
-                <div className="home-location-state">
-                  <span className="home-location-state-icon">
-                    <Check size={12} strokeWidth={3} />
-                  </span>
-                  <span className="home-location-state-name">텍사스</span>
-                </div>
-
-                <div className="home-location-state">
-                  <span className="home-location-state-icon">
-                    <Check size={12} strokeWidth={3} />
-                  </span>
-                  <span className="home-location-state-name">필라델피아</span>
-                </div>
+                {locationStates.map((state, index) => (
+                  <div key={index} className="home-location-state">
+                    <span className="home-location-state-icon">
+                      <Check size={12} strokeWidth={3} />
+                    </span>
+                    <span className="home-location-state-name">{state}</span>
+                  </div>
+                ))}
               </div>
 
               <div className="home-location-cta-wrapper">
@@ -907,7 +542,7 @@ const Home = () => {
                   className="home-location-cta-primary"
                   onClick={() => handleNavigation("/contact")}
                 >
-                  지금 상담 신청하기
+                  {t("home.location.cta.primary")}
                 </button>
               </div>
             </div>
@@ -916,19 +551,18 @@ const Home = () => {
       </section>
 
       {/* Case Studies Section */}
-      <section className="home-cases">
+      <section id="case" className="home-cases">
         <div className="container">
           <div ref={casesHeaderRef} className="home-cases-header fade-up">
-            <span className="home-section-tag">Stories</span>
+            <span className="home-section-tag">{t("home.cases.tag")}</span>
             <h2 className="home-section-title">
-              실제 고객사의
+              {t("home.cases.title")}
               <span className="home-section-highlight">
-                성공적인 미국 진출 사례
+                {t("home.cases.titleHighlight")}
               </span>
             </h2>
             <p className="home-section-description">
-              다양한 산업군의 한국 기업들이 저희와 함께 미국 시장에서 성공을
-              거두고 있습니다.
+              {t("home.cases.description")}
             </p>
           </div>
 
@@ -940,39 +574,50 @@ const Home = () => {
             >
               <div className="home-case-header">
                 <div className="home-case-info">
-                  <h3 className="home-case-title">스타트업 A사</h3>
+                  <h3 className="home-case-title">
+                    {t("home.cases.case1.title")}
+                  </h3>
                   <p className="home-case-industry">
-                    IT / SaaS · 실리콘밸리 진출
+                    {t("home.cases.case1.industry")}
                   </p>
                 </div>
               </div>
 
               <div className="home-case-comparison">
                 <div className="home-case-before">
-                  <span className="home-case-label">Before</span>
+                  <span className="home-case-label">
+                    {t("home.cases.case1.before.label")}
+                  </span>
                   <ul className="home-case-list">
-                    <li>복잡한 미국 세법으로 인한 과세</li>
-                    <li>투자자 미팅 시 신뢰도 부족</li>
-                    <li>현지 법인 운영 경험 부재</li>
+                    {(t("home.cases.case1.before.items") || []).map(
+                      (item, idx) => (
+                        <li key={idx}>{item}</li>
+                      )
+                    )}
                   </ul>
                 </div>
 
                 <div className="home-case-after">
-                  <span className="home-case-label">After</span>
+                  <span className="home-case-label">
+                    {t("home.cases.case1.after.label")}
+                  </span>
                   <ul className="home-case-list">
-                    <li>최적화된 법인 구조로 절세 실현</li>
-                    <li>Series A 투자 성공적 유치</li>
-                    <li>안정적인 미국 법인 운영</li>
+                    {(t("home.cases.case1.after.items") || []).map(
+                      (item, idx) => (
+                        <li key={idx}>{item}</li>
+                      )
+                    )}
                   </ul>
                 </div>
               </div>
 
               <div className="home-case-footer">
                 <blockquote className="home-case-quote">
-                  "전문적인 세무 전략과 투자 준비 과정 덕분에 성공적으로
-                  자리잡을 수 있었습니다."
+                  {t("home.cases.case1.quote")}
                 </blockquote>
-                <p className="home-case-author">- CEO, 테크 스타트업 A사</p>
+                <p className="home-case-author">
+                  {t("home.cases.case1.author")}
+                </p>
               </div>
             </div>
 
@@ -983,52 +628,61 @@ const Home = () => {
             >
               <div className="home-case-header">
                 <div className="home-case-info">
-                  <h3 className="home-case-title">제조업 B사</h3>
+                  <h3 className="home-case-title">
+                    {t("home.cases.case2.title")}
+                  </h3>
                   <p className="home-case-industry">
-                    제조업 · 텍사스 공장 설립
+                    {t("home.cases.case2.industry")}
                   </p>
                 </div>
               </div>
 
               <div className="home-case-comparison">
                 <div className="home-case-before">
-                  <span className="home-case-label">Before</span>
+                  <span className="home-case-label">
+                    {t("home.cases.case2.before.label")}
+                  </span>
                   <ul className="home-case-list">
-                    <li>높은 수입 관세 부담</li>
-                    <li>물류 비용 과다 지출</li>
-                    <li>미국 시장 대응 지연</li>
+                    {(t("home.cases.case2.before.items") || []).map(
+                      (item, idx) => (
+                        <li key={idx}>{item}</li>
+                      )
+                    )}
                   </ul>
                 </div>
 
                 <div className="home-case-after">
-                  <span className="home-case-label">After</span>
+                  <span className="home-case-label">
+                    {t("home.cases.case2.after.label")}
+                  </span>
                   <ul className="home-case-list">
-                    <li>현지 생산으로 관세 회피</li>
-                    <li>주정부 인센티브 획득</li>
-                    <li>빠른 시장 대응 체계 구축</li>
+                    {(t("home.cases.case2.after.items") || []).map(
+                      (item, idx) => (
+                        <li key={idx}>{item}</li>
+                      )
+                    )}
                   </ul>
                 </div>
               </div>
 
               <div className="home-case-footer">
                 <blockquote className="home-case-quote">
-                  "텍사스 진출 전략부터 공장 설립, 세무 최적화까지 모든 과정을
-                  함께해 주셔서 감사합니다."
+                  {t("home.cases.case2.quote")}
                 </blockquote>
-                <p className="home-case-author">- CFO, 제조업 B사</p>
+                <p className="home-case-author">
+                  {t("home.cases.case2.author")}
+                </p>
               </div>
             </div>
           </div>
 
           <div ref={casesCtaRef} className="home-cases-cta scale-in">
-            <p className="home-cases-cta-text">
-              귀사도 미국 시장에서 성공 스토리를 만들어보세요
-            </p>
+            <p className="home-cases-cta-text">{t("home.cases.cta.text")}</p>
             <button
               className="home-cases-cta-button"
               onClick={() => handleNavigation("/contact")}
             >
-              상담 시작하기
+              {t("home.cases.cta.button")}
             </button>
           </div>
         </div>

@@ -1,0 +1,475 @@
+{
+  "common": {
+    "companyName": "CPA Group",
+    "companyNameFull": "CPA Group USA",
+    "tagline": "한인 CPA 전문 그룹",
+    "phone": "전화",
+    "email": "이메일",
+    "required": "*",
+    "submit": "제출",
+    "loading": "로딩 중...",
+    "success": "성공",
+    "error": "오류",
+    "more": "더보기",
+    "close": "닫기"
+  },
+
+  "nav": {
+    "about": "회사소개",
+    "services": "서비스",
+    "cases": "성공사례",
+    "contact": "문의하기",
+    "dropdown": {
+      "team": "전문가 소개",
+      "values": "우리의 가치",
+      "incorporation": "법인 설립",
+      "tax": "세무 신고",
+      "accounting": "회계 & 재무 관리",
+      "consulting": "비즈니스 컨설팅",
+      "hr": "HR 및 급여 관리",
+      "it": "IT 솔루션"
+    }
+  },
+
+  "footer": {
+    "description": "15년 이상의 전문 경험으로 한국 기업의 성공적인 미국 진출을 지원하는 믿을 수 있는 파트너입니다.",
+    "quickLinks": "빠른 링크",
+    "mainServices": "주요 서비스",
+    "contactInfo": "연락처 정보",
+    "aboutUs": "회사 소개",
+    "servicesOverview": "서비스 개요",
+    "process": "프로세스",
+    "contactUs": "문의하기",
+    "servicesList": {
+      "incorporation": "법인 설립 및 운영",
+      "tax": "세무 신고 및 전략",
+      "accounting": "회계 및 재무 관리",
+      "consulting": "비즈니스 컨설팅",
+      "it": "IT 솔루션"
+    },
+    "newsletter": {
+      "title": "미국 비즈니스 인사이트를 받아보세요",
+      "description": "최신 세무 정보와 비즈니스 팁을 이메일로 전달해드립니다.",
+      "placeholder": "이메일 주소를 입력하세요",
+      "button": "구독하기"
+    },
+    "legal": {
+      "privacy": "개인정보처리방침",
+      "terms": "이용약관",
+      "cookies": "쿠키 정책",
+      "copyright": "© {year} CPA Group USA. All rights reserved."
+    }
+  },
+
+  "home": {
+    "hero": {
+      "title": "미국 진출의 든든한 파트너",
+      "subtitle": "회계•세무•비즈니스 토탈 전문가 솔루션",
+      "description": "복잡한 미국 세무·회계 문제를 명확하게 해결해드립니다. 한국 기업의 성공적인 미국 시장 진출을 위한 맞춤형 솔루션을 제공합니다.",
+      "cta": {
+        "primary": "상담 신청하기",
+        "secondary": "서비스 소개"
+      },
+      "stats": {
+        "clients": "성공적인 미국 진출 기업",
+        "experience": "누적 전문 경험",
+        "experts": "전문 CPA 회계사"
+      }
+    },
+
+    "about": {
+      "tag": "About Us",
+      "title": "한국 기업을 위한",
+      "titleHighlight": "미국 비즈니스 전문가 그룹",
+      "description": "한국 기업의 특성을 깊이 이해하고, 미국 비즈니스 환경에 정통한 저희가 여러분의 성공적인 미국 진출을 위한 최적의 파트너가 되어드리겠습니다.",
+      "cards": {
+        "experience": {
+          "title": "15년 이상의 전문성",
+          "description": "미국 시장에서 15년 이상 축적된 경험과 노하우로 한국 기업의 특성에 맞는 맞춤형 서비스를 제공합니다."
+        },
+        "onestop": {
+          "title": "원스톱 솔루션",
+          "description": "회사 설립부터 세무 신고, 회계 감사, 컨설팅까지 미국 비즈니스에 필요한 모든 서비스를 한 곳에서 해결합니다."
+        },
+        "network": {
+          "title": "글로벌 네트워크",
+          "description": "뉴욕, 시애틀, 텍사스, 필라델피아 등 미국 주요 도시의 전문가 네트워크를 통해 현지 맞춤형 지원을 제공합니다."
+        }
+      },
+      "cta": {
+        "title": "지금 바로 미국 진출의 첫걸음을 시작하세요",
+        "description": "무료 상담을 통해 귀사에 최적화된 미국 진출 전략을 제안해드립니다.",
+        "button": "전문가와 상담하기"
+      }
+    },
+
+    "services": {
+      "tag": "Services",
+      "title": "완벽한 서비스로",
+      "titleHighlight": "함께하는 미국 진출",
+      "description": "회사 설립부터 세무 관리까지, 각 분야의 전문가가 통합 솔루션을 제공합니다.",
+      "viewMore": "자세히 보기",
+      "items": {
+        "incorporation": {
+          "title": "법인 설립 및 운영",
+          "description": "비즈니스 목적에 맞는 최적의 법인 형태 선택부터 설립, 운영까지 전 과정을 지원합니다.",
+          "features": [
+            "LLC, C-Corp, S-Corp 설립",
+            "EIN 및 라이센스 취득",
+            "법인 유지 관리"
+          ]
+        },
+        "tax": {
+          "title": "세무 신고 및 전략",
+          "description": "연방세, 주세, 판매세 등 복잡한 미국 세무 체계를 완벽히 이해하고 최적의 절세 전략을 수립합니다.",
+          "features": [
+            "법인세 및 개인소득세 신고",
+            "세무 조사 대응",
+            "국제 조세 컨설팅"
+          ]
+        },
+        "accounting": {
+          "title": "회계 및 재무 관리",
+          "description": "GAAP 기준에 따른 정확한 재무제표 작성과 체계적인 회계 관리로 투명한 재무 운영을 지원합니다.",
+          "features": [
+            "재무제표 작성 및 감사",
+            "월별 회계 장부 정리",
+            "재무 분석 및 리포팅"
+          ]
+        },
+        "consulting": {
+          "title": "비즈니스 컨설팅",
+          "description": "미국 시장 진출 전략 수립부터 현지화, 성장 전략까지 단계별 맞춤 컨설팅을 제공합니다.",
+          "features": [
+            "시장 진출 전략 수립",
+            "M&A 및 투자 자문",
+            "비즈니스 프로세스 최적화"
+          ]
+        },
+        "hr": {
+          "title": "HR 및 급여 관리",
+          "description": "미국 노동법 준수와 체계적인 인사 관리로 안정적인 조직 운영과 성장을 지원합니다.",
+          "features": [
+            "HR 정책 수립",
+            "급여 처리 및 Payroll 시스템 운영",
+            "직원 복리후생 설계 (401k, 건강보험)"
+          ]
+        },
+        "it": {
+          "title": "IT 솔루션 구축",
+          "description": "효율적인 비즈니스 운영을 위한 핵심 시스템 도입과 최적화를 통해 업무 생산성을 극대화합니다.",
+          "features": [
+            "Microsoft 365 라이센스 공급 및 관리",
+            "CRM 도입 및 커스터마이징",
+            "프로세스 자동화"
+          ]
+        }
+      }
+    },
+
+    "process": {
+      "tag": "Process",
+      "title": "확실한 성과를 위한",
+      "titleHighlight": "체계적인 4단계 프로세스",
+      "description": "초기 상담부터 지속적인 지원까지, 모든 단계에서 전문가가 함께합니다.",
+      "steps": {
+        "consultation": {
+          "number": "01",
+          "title": "무료 상담",
+          "description": "귀사의 비즈니스 목표와 미국 진출 계획을 상세히 파악합니다.",
+          "items": ["비즈니스 모델 분석", "진출 목표 설정", "예상 일정 수립"],
+          "duration": "1-2일 소요"
+        },
+        "analysis": {
+          "number": "02",
+          "title": "심층 분석",
+          "description": "현재 상황을 정밀 분석하고 최적의 진출 전략을 수립합니다.",
+          "items": ["세무 구조 분석", "법인 형태 검토", "리스크 평가"],
+          "duration": "1-2주 소요"
+        },
+        "execution": {
+          "number": "03",
+          "title": "전략 실행",
+          "description": "수립된 전략에 따라 법인 설립부터 운영까지 실행합니다.",
+          "items": ["법인 설립 진행", "세무 등록 완료", "운영 체계 구축"],
+          "duration": "2-4주 소요"
+        },
+        "support": {
+          "number": "04",
+          "title": "지속 지원",
+          "description": "안정적인 운영을 위한 지속적인 관리와 지원을 제공합니다.",
+          "items": ["정기 세무 신고", "회계 관리 지원", "컨설팅 서비스"],
+          "duration": "연중 지속"
+        }
+      }
+    },
+
+    "location": {
+      "tag": "Coverage",
+      "title": "미국 전역을 커버하는",
+      "titleHighlight": "전문 네트워크 시스템",
+      "description": "각 주마다 다른 세무 규정, 어디로 진출해야 할지 고민이신가요? 주요 비즈니스 거점에서 현지 맞춤형 전문 서비스를 제공합니다.",
+      "mainDescription": "텍사스의 세금 혜택부터 델라웨어의 법인 설립 장점까지, 각 주 및 도시의 특성을 완벽히 파악한 전문가들이 최적의 진출 전략을 제시합니다.",
+      "badge": "6개 주요 거점",
+      "states": [
+        "노스캐롤라이나",
+        "뉴욕 • 뉴저지",
+        "시애틀",
+        "캘리포니아",
+        "텍사스",
+        "필라델피아"
+      ],
+      "cta": {
+        "primary": "지금 상담 신청하기"
+      }
+    },
+
+    "cases": {
+      "tag": "Stories",
+      "title": "실제 고객사의",
+      "titleHighlight": "성공적인 미국 진출 사례",
+      "description": "다양한 산업군의 한국 기업들이 저희와 함께 미국 시장에서 성공을 거두고 있습니다.",
+      "case1": {
+        "title": "스타트업 A사",
+        "industry": "IT / SaaS · 실리콘밸리 진출",
+        "before": {
+          "label": "Before",
+          "items": [
+            "복잡한 미국 세법으로 인한 과세",
+            "투자자 미팅 시 신뢰도 부족",
+            "현지 법인 운영 경험 부재"
+          ]
+        },
+        "after": {
+          "label": "After",
+          "items": [
+            "최적화된 법인 구조로 절세 실현",
+            "Series A 투자 성공적 유치",
+            "안정적인 미국 법인 운영"
+          ]
+        },
+        "quote": "전문적인 세무 전략과 투자 준비 과정 덕분에 성공적으로 자리잡을 수 있었습니다.",
+        "author": "- CEO, 테크 스타트업 A사"
+      },
+      "case2": {
+        "title": "제조업 B사",
+        "industry": "제조업 · 텍사스 공장 설립",
+        "before": {
+          "label": "Before",
+          "items": [
+            "높은 수입 관세 부담",
+            "물류 비용 과다 지출",
+            "미국 시장 대응 지연"
+          ]
+        },
+        "after": {
+          "label": "After",
+          "items": [
+            "현지 생산으로 관세 회피",
+            "주정부 인센티브 획득",
+            "빠른 시장 대응 체계 구축"
+          ]
+        },
+        "quote": "텍사스 진출 전략부터 공장 설립, 세무 최적화까지 모든 과정을 함께해 주셔서 감사합니다.",
+        "author": "- CFO, 제조업 B사"
+      },
+      "cta": {
+        "text": "귀사도 미국 시장에서 성공 스토리를 만들어보세요",
+        "button": "상담 시작하기"
+      }
+    }
+  },
+
+  "services": {
+    "hero": {
+      "title": "원스톱 토탈 솔루션",
+      "description": "법인 설립부터 세무, 회계, HR, IT 솔루션까지\n각 분야 전문가가 통합 솔루션으로 지원합니다."
+    },
+    "main": {
+      "tag": "Our Services",
+      "title": "전문 분야별",
+      "titleHighlight": "통합 서비스 제공",
+      "description": "각 분야의 전문가들이 유기적으로 협력하여 귀사의 미국 비즈니스를 완벽하게 지원합니다",
+      "learnMore": "자세히 알아보기",
+      "mostPopular": "Most Popular"
+    },
+    "features": {
+      "tag": "Why Choose Us",
+      "title": "왜 우리를 선택해야 할까요?",
+      "description": "15년 이상의 경험과 전문성과 각 분야 전문가가 제공하는 맞춤 토탈 솔루션으로 한국 기업의 성공적인 미국 진출을 보장합니다.",
+      "items": {
+        "compliance": {
+          "title": "법률 준수",
+          "description": "미국 법률 및 규정을 완벽 준수하여 리스크 제로"
+        },
+        "response": {
+          "title": "빠른 응답",
+          "description": "어떠한 상황이 발생해도 즉각 대응 가능한 시스템"
+        },
+        "network": {
+          "title": "글로벌 네트워크",
+          "description": "미국 전역 6개 주요 도시 전문가 네트워크"
+        },
+        "expertise": {
+          "title": "검증된 전문성",
+          "description": "다수의 CPA 보유, 500+ 성공 사례"
+        }
+      }
+    },
+    "process": {
+      "tag": "Our Process",
+      "title": "체계적인 서비스 프로세스",
+      "steps": {
+        "consultation": {
+          "title": "초기 상담",
+          "description": "비즈니스 현황 파악 및 니즈 분석"
+        },
+        "strategy": {
+          "title": "전략 수립",
+          "description": "맞춤형 솔루션 설계 및 제안"
+        },
+        "execution": {
+          "title": "실행 및 관리",
+          "description": "단계별 실행 및 지속적 모니터링"
+        },
+        "achievement": {
+          "title": "성과 달성",
+          "description": "목표 달성 및 지속 성장 지원"
+        }
+      }
+    },
+    "pricing": {
+      "tag": "Pricing Plans",
+      "title": "비즈니스 규모에 맞는",
+      "titleHighlight": "합리적인 요금제",
+      "description": "투명하고 합리적인 가격으로 최고의 서비스를 제공합니다",
+      "mostPopular": "Most Popular",
+      "plans": {
+        "startup": {
+          "name": "Startup",
+          "description": "스타트업 및 소규모 비즈니스",
+          "price": "$500",
+          "period": "/월부터",
+          "features": [
+            "법인 설립 지원",
+            "기본 세무 신고",
+            "월별 장부 정리",
+            "이메일 지원",
+            "분기별 리뷰"
+          ],
+          "cta": "시작하기"
+        },
+        "growth": {
+          "name": "Growth",
+          "description": "성장 단계 기업",
+          "price": "$1,500",
+          "period": "/월부터",
+          "features": [
+            "Startup 플랜 모든 혜택",
+            "세무 전략 컨설팅",
+            "재무제표 작성",
+            "HR 지원 서비스",
+            "우선 지원",
+            "월별 리뷰 미팅"
+          ],
+          "cta": "문의하기"
+        },
+        "enterprise": {
+          "name": "Enterprise",
+          "description": "대규모 기업",
+          "price": "맞춤 견적",
+          "period": "",
+          "features": [
+            "Growth 플랜 모든 혜택",
+            "전담 매니저 배정",
+            "M&A 자문",
+            "국제 조세 컨설팅",
+            "24/7 지원",
+            "맞춤형 솔루션"
+          ],
+          "cta": "문의하기"
+        }
+      }
+    },
+    "cta": {
+      "title": "지금 바로 전문가와 상담하세요",
+      "description": "귀사의 성공적인 미국 진출을 위한 첫 걸음,\n무료 상담으로 시작하세요",
+      "button": "상담 신청하기"
+    }
+  },
+
+  "contact": {
+    "hero": {
+      "title": "문의하기",
+      "subtitle": "미국 진출의 모든 과정, 전문가가 함께합니다."
+    },
+    "form": {
+      "title": "상담 신청",
+      "description": "귀사의 성공적인 미국 진출을 위한 첫 걸음을 시작하세요.",
+      "responseTime": "전문 CPA 그룹이 영업일 기준 24시간 내에 연락드립니다.",
+      "fields": {
+        "name": "이름",
+        "email": "이메일",
+        "phone": "연락처",
+        "residency": "거주 지역",
+        "residencyOptions": {
+          "us": "미국",
+          "overseas": "해외 (한국 포함)"
+        },
+        "location": "희망 서비스 지역",
+        "locations": {
+          "nc": "노스캐롤라이나",
+          "ny-nj": "뉴욕 • 뉴저지",
+          "seattle": "시애틀",
+          "ca": "캘리포니아",
+          "tx": "텍사스",
+          "philadelphia": "필라델피아",
+          "other": "기타"
+        },
+        "message": "문의 내용",
+        "messagePlaceholder": "문의하실 내용을 자세히 작성해주세요.\n예: 사업 분야, 진출 시기, 필요한 서비스 등"
+      },
+      "submit": {
+        "button": "상담 신청하기",
+        "submitting": "전송 중...",
+        "success": "전송 완료"
+      }
+    },
+    "info": {
+      "process": {
+        "title": "상담 프로세스",
+        "steps": [
+          "온라인 상담 신청",
+          "전문가 배정 (24시간 내)",
+          "초기 상담 진행",
+          "맞춤형 솔루션 제안"
+        ]
+      },
+      "services": {
+        "title": "주요 서비스",
+        "items": [
+          "법인 설립 및 운영",
+          "세무 신고 및 전략",
+          "회계 및 재무 관리",
+          "비즈니스 컨설팅",
+          "HR 및 급여 관리",
+          "맞춤 IT 솔루션"
+        ]
+      },
+      "locations": {
+        "title": "서비스 지역"
+      },
+      "benefits": {
+        "title": "왜 선택해야 할까요?",
+        "experience": "전문 경험",
+        "cases": "성공 사례",
+        "experts": "전문 인력",
+        "response": "응답 시간",
+        "yearsPlus": "15년+",
+        "count": "500+",
+        "multiple": "다수",
+        "hours": "24시간"
+      }
+    }
+  }
+}
