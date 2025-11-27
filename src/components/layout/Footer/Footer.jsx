@@ -24,7 +24,7 @@ const Footer = () => {
             {/* Company Info */}
             <div className="footer-section footer-company">
               <div className="footer-logo">
-                <h3 className="footer-logo-text">CPA Group</h3>
+                <h3 className="footer-logo-text">CHKBY Advisory</h3>
                 <span className="footer-logo-tagline">한인 CPA 전문 그룹</span>
               </div>
               <p className="footer-description">
@@ -178,7 +178,7 @@ const Footer = () => {
         <div className="container">
           <div className="footer-bottom-content">
             <div className="footer-copyright">
-              <p>© {currentYear} CPA Group USA. All rights reserved.</p>
+              <p>© {currentYear} CHKBY Advisory PLLC. All rights reserved.</p>
               <div className="footer-legal">
                 <a href="#">개인정보처리방침</a>
                 <span className="footer-divider">|</span>

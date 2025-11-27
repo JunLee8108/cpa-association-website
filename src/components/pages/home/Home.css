@@ -295,13 +295,13 @@
 
 /* ==================== About Section ==================== */
 .home-about {
-  padding: var(--spacing-4xl) 0;
+  padding: var(--spacing-3xl) 0;
   background: var(--bg-primary);
 }
 
 .home-about-header {
   text-align: center;
-  margin-bottom: var(--spacing-3xl);
+  margin-bottom: var(--spacing-xl);
 }
 
 .home-section-tag {
@@ -351,7 +351,7 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: var(--spacing-lg);
-  margin-bottom: var(--spacing-3xl);
+  margin-bottom: var(--spacing-xl);
 }
 
 .home-about-card {
@@ -536,7 +536,7 @@
 }
 
 .home-services {
-  padding: var(--spacing-4xl) 0;
+  padding: var(--spacing-3xl) 0;
   background: var(--bg-secondary);
   position: relative;
 }
@@ -559,7 +559,7 @@
 
 .home-services-header {
   text-align: center;
-  margin-bottom: var(--spacing-3xl);
+  margin-bottom: var(--spacing-xl);
 }
 
 .home-services-grid {
@@ -750,14 +750,14 @@
 
 /* ==================== Process Section ==================== */
 .home-process {
-  padding: var(--spacing-4xl) 0;
+  padding: var(--spacing-3xl) 0;
   background: var(--bg-primary);
   position: relative;
 }
 
 .home-process-header {
   text-align: center;
-  margin-bottom: var(--spacing-3xl);
+  margin-bottom: var(--spacing-xl);
 }
 
 /* Timeline Container */
@@ -927,21 +927,21 @@
 
 /* ==================== Case Section ==================== */
 .home-cases {
-  padding: var(--spacing-4xl) 0;
+  padding: var(--spacing-3xl) 0;
   background: var(--bg-primary);
   position: relative;
 }
 
 .home-cases-header {
   text-align: center;
-  margin-bottom: var(--spacing-3xl);
+  margin-bottom: var(--spacing-xl);
 }
 
 .home-cases-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
   gap: var(--spacing-xl);
-  margin-bottom: var(--spacing-3xl);
+  margin-bottom: var(--spacing-xl);
 }
 
 .home-case-card {
@@ -1182,7 +1182,7 @@
 
 /* ==================== Location Section ==================== */
 .home-location {
-  padding: var(--spacing-4xl) 0;
+  padding: var(--spacing-3xl) 0;
   background: linear-gradient(
     135deg,
     var(--bg-primary) 0%,
@@ -1194,7 +1194,7 @@
 
 .home-location-header {
   text-align: center;
-  margin-bottom: var(--spacing-2xl);
+  margin-bottom: var(--spacing-xl);
   position: relative;
   z-index: 1;
 }

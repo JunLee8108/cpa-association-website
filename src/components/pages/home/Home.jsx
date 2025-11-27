@@ -436,9 +436,7 @@ const Home = () => {
               >
                 <div className="home-process-step-number">
                   <span>{step.number}</span>
-                  {index < processSteps.length - 1 && (
-                    <div className="home-process-step-line"></div>
-                  )}
+                  <div className="home-process-step-line"></div>
                 </div>
 
                 <div className="home-process-step-content">

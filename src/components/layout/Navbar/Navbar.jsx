@@ -152,8 +152,8 @@ const Navbar = () => {
             onClick={() => handleNavigation("/")}
             className="navbar-logo-link"
           >
-            <span className="navbar-logo-text">CPA</span>
-            <span className="navbar-logo-accent">Group</span>
+            <span className="navbar-logo-text">CHKBY</span>
+            <span className="navbar-logo-accent">Advisory</span>
           </div>
         </div>
 
