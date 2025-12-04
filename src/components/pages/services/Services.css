@@ -95,7 +95,6 @@
 .service-section-highlight {
   display: block;
   color: var(--primary-blue);
-  margin-top: var(--spacing-xs);
 }
 
 .service-section-description {
@@ -325,7 +324,6 @@
   position: relative;
   border-radius: var(--radius-2xl);
   overflow: hidden;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
 }
 
 .service-features-image img {

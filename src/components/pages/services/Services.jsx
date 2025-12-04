@@ -25,7 +25,7 @@ const Services = () => {
 
   // Animation refs
   const heroContentRef = useRef(null);
-  const servicesGridRef = useRef([]);
+  const servicesGridRef = useRef(null);
   const featuresRef = useRef(null);
   const processRef = useRef(null);
   const pricingRef = useRef([]);
@@ -56,13 +56,10 @@ const Services = () => {
       observer.observe(heroContentRef.current);
     }
 
-    // Observe service cards
-    servicesGridRef.current.forEach((card, index) => {
-      if (card) {
-        card.style.animationDelay = `${index * 0.1}s`;
-        observer.observe(card);
-      }
-    });
+    // Observe service grid
+    if (servicesGridRef.current) {
+      observer.observe(servicesGridRef.current);
+    }
 
     // Observe features
     if (featuresRef.current) {
@@ -227,8 +224,7 @@ const Services = () => {
           <div ref={heroContentRef} className="service-hero-content fade-up">
             <h1 className="service-hero-title">원스톱 토탈 솔루션</h1>
             <p className="service-hero-description">
-              법인 설립부터 세무, 회계, HR, IT 솔루션까지
-              <br />각 분야 전문가가 통합 솔루션으로 지원합니다.
+              각 분야 전문가가 통합 솔루션으로 지원합니다.
             </p>
           </div>
         </div>
@@ -251,12 +247,11 @@ const Services = () => {
             </p>
           </div>
 
-          <div className="service-grid">
+          <div ref={servicesGridRef} className="service-grid fade-up">
             {services.map((service, index) => (
               <div
                 key={index}
-                ref={(el) => (servicesGridRef.current[index] = el)}
-                className={`service-card fade-up ${
+                className={`service-card ${
                   service.highlight ? "highlight" : ""
                 }`}
               >
