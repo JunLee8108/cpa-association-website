@@ -24,7 +24,7 @@ const Footer = () => {
             {/* Company Info */}
             <div className="footer-section footer-company">
               <div className="footer-logo">
-                <h3 className="footer-logo-text">CHKBY Advisory</h3>
+                <h3 className="footer-logo-text">CHKby Advisory</h3>
                 <span className="footer-logo-tagline">한인 CPA 전문 그룹</span>
               </div>
               <p className="footer-description">
@@ -141,7 +141,7 @@ const Footer = () => {
                   <div>
                     <p className="footer-contact-title">이메일</p>
                     <p className="footer-contact-text">
-                      info@cpagroupusa.com
+                      admin@chkby.com
                       <br />
                       support@cpagroupusa.com
                     </p>

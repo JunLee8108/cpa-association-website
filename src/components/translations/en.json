@@ -37,9 +37,9 @@
     "process": "Process",
     "contactUs": "Contact Us",
     "servicesList": {
-      "incorporation": "Business Formation & Operations",
+      "incorporation": "Business Formation",
       "tax": "Tax Planning & Compliance",
-      "accounting": "Accounting & Financial Management",
+      "accounting": "Financial Management",
       "consulting": "Business Consulting",
       "it": "IT Solutions"
     },
