@@ -39,7 +39,6 @@
   position: relative;
   z-index: 1;
   text-align: center;
-  padding-top: var(--spacing-2xl);
 }
 
 .contact-hero-heading {
@@ -60,15 +59,15 @@
 
 /* ==================== Form Section ==================== */
 .contact-form-section {
-  padding: var(--spacing-4xl) 0;
+  padding: var(--spacing-2xl) 0;
   background: var(--bg-primary);
 }
 
 .contact-content {
   display: grid;
-  grid-template-columns: 2fr 1fr;
-  gap: var(--spacing-3xl);
-  max-width: 1200px;
+  grid-template-columns: 1.8fr 1fr;
+  gap: var(--spacing-xl);
+  max-width: 1280px;
   margin: 0 auto;
 }
 

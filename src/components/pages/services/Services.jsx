@@ -371,43 +371,43 @@ const Services = () => {
             <div className="service-process-timeline">
               <div className="service-process-item">
                 <div className="service-process-icon">
-                  <FileText size={24} />
+                  <FileText size={40} />
                 </div>
                 <h4>초기 상담</h4>
                 <p>비즈니스 현황 파악 및 니즈 분석</p>
               </div>
 
               <div className="service-process-arrow">
-                <ChevronRight size={20} />
+                <ChevronRight size={44} />
               </div>
 
               <div className="service-process-item">
                 <div className="service-process-icon">
-                  <Briefcase size={24} />
+                  <Briefcase size={40} />
                 </div>
                 <h4>전략 수립</h4>
                 <p>맞춤형 솔루션 설계 및 제안</p>
               </div>
 
               <div className="service-process-arrow">
-                <ChevronRight size={20} />
+                <ChevronRight size={40} />
               </div>
 
               <div className="service-process-item">
                 <div className="service-process-icon">
-                  <TrendingUp size={24} />
+                  <TrendingUp size={44} />
                 </div>
                 <h4>실행 및 관리</h4>
                 <p>단계별 실행 및 지속적 모니터링</p>
               </div>
 
               <div className="service-process-arrow">
-                <ChevronRight size={20} />
+                <ChevronRight size={40} />
               </div>
 
               <div className="service-process-item">
                 <div className="service-process-icon">
-                  <Award size={24} />
+                  <Award size={44} />
                 </div>
                 <h4>성과 달성</h4>
                 <p>목표 달성 및 지속 성장 지원</p>

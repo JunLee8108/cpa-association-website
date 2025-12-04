@@ -503,7 +503,7 @@ const Home = () => {
           <div className="home-location-content">
             <div ref={locationMapRef} className="home-location-map fade-up">
               <img
-                src="/hero.png"
+                src="/service-1.jpg"
                 alt={
                   currentLanguage === "ko"
                     ? "미국 서비스 지역"

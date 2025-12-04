@@ -357,7 +357,7 @@ const Contact = () => {
               </div>
 
               <div className="info-card highlight">
-                <h4>왜 선택해야 할까요?</h4>
+                <h4 style={{ textAlign: "center" }}>왜 선택해야 할까요?</h4>
                 <ul className="benefit-list">
                   <li>
                     <strong>15년+</strong> 전문 경험
