@@ -107,7 +107,7 @@
       "viewMore": "Learn More",
       "items": {
         "incorporation": {
-          "title": "Business Formation & Operations",
+          "title": "Business Formation",
           "description": "Supporting the entire process from selecting the optimal entity type to formation and operations for your business objectives.",
           "features": [
             "LLC, C-Corp, S-Corp Formation",
@@ -125,7 +125,7 @@
           ]
         },
         "accounting": {
-          "title": "Accounting & Financial Management",
+          "title": "Financial Management",
           "description": "Supporting transparent financial operations with accurate financial statements per GAAP standards and systematic accounting management.",
           "features": [
             "Financial Statement Preparation & Audit",
