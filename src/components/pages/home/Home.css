@@ -60,7 +60,7 @@
 .home-hero-inner {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   min-height: calc(100vh - 12rem);
 }
 
@@ -144,7 +144,7 @@
   gap: var(--spacing-2xl);
   padding-top: var(--spacing-2xl);
   border-top: 1px solid rgba(255, 255, 255, 0.15);
-  margin-top: auto;
+  margin-top: var(--spacing-xl);
 }
 
 .home-hero-trust-item {
