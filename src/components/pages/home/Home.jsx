@@ -162,78 +162,92 @@ const Home = () => {
 
   return (
     <div className="home-container">
-      {/* Hero Section */}
+      {/* Hero Section - 기존 코드를 이걸로 교체 */}
       <section className="home-hero">
         <div className="home-hero-background">
+          <img
+            src="/hero.png"
+            alt={
+              currentLanguage === "ko"
+                ? "미국 비즈니스 컨설팅"
+                : "US Business Consulting"
+            }
+            className="home-hero-background-image"
+          />
           <div className="home-hero-overlay"></div>
         </div>
+
         <div className="home-hero-content">
           <div className="container">
             <div className="home-hero-inner">
-              <div className="home-hero-left">
-                <div className="home-hero-text-wrapper">
-                  <h1 ref={heroTitleRef} className="home-hero-title fade-up">
-                    {currentLanguage === "ko" ? (
-                      <>
-                        {titleParts.slice(0, highlightIndex).join(" ")}{" "}
+              <div className="home-hero-text-wrapper">
+                <h1 ref={heroSubtitleRef} className="home-hero-title fade-up">
+                  {currentLanguage === "ko" ? (
+                    <>
+                      <span className="home-hero-title-line">미국 진출의</span>
+                      <span className="home-hero-title-line">
                         <span className="home-hero-highlight">
-                          {titleParts.slice(highlightIndex).join(" ")}
+                          든든한 파트너
                         </span>
-                      </>
-                    ) : (
-                      heroTitle
-                    )}
-                  </h1>
-                  <p
-                    ref={heroSubtitleRef}
-                    className="home-hero-subtitle fade-up"
+                      </span>
+                    </>
+                  ) : (
+                    <>
+                      <span className="home-hero-title-line">Your Trusted</span>
+                      <span className="home-hero-title-line">
+                        <span className="home-hero-highlight">
+                          Business Partner
+                        </span>
+                      </span>
+                    </>
+                  )}
+                </h1>
+
+                <p
+                  ref={heroDescriptionRef}
+                  className="home-hero-description fade-up"
+                >
+                  {t("home.hero.description")}
+                </p>
+
+                <div ref={heroCtaRef} className="home-hero-cta-wrapper fade-up">
+                  <button
+                    className="home-hero-cta-primary"
+                    onClick={() => handleNavigation("/contact")}
                   >
-                    {t("home.hero.subtitle")}
-                  </p>
-                  <p
-                    ref={heroDescriptionRef}
-                    className="home-hero-description fade-up"
+                    {t("home.hero.cta.primary")}
+                  </button>
+                  <button
+                    className="home-hero-cta-secondary"
+                    onClick={() => handleNavigation("/services")}
                   >
-                    {t("home.hero.description")
-                      .split(". ")
-                      .map((sentence, idx, arr) => (
-                        <React.Fragment key={idx}>
-                          {sentence}
-                          {idx < arr.length - 1 && "."}
-                          {idx < arr.length - 1 && <br />}
-                        </React.Fragment>
-                      ))}
-                  </p>
-                  <div
-                    ref={heroCtaRef}
-                    className="home-hero-cta-wrapper fade-up"
-                  >
-                    <button
-                      className="home-hero-cta-secondary"
-                      onClick={() => handleNavigation("/services")}
-                    >
-                      {t("home.hero.cta.secondary")}
-                    </button>
-                    <button
-                      className="home-hero-cta-primary"
-                      onClick={() => handleNavigation("/contact")}
-                    >
-                      {t("home.hero.cta.primary")}
-                    </button>
-                  </div>
+                    {t("home.hero.cta.secondary")}
+                  </button>
                 </div>
               </div>
-              <div className="home-hero-right">
-                <div className="home-hero-image-wrapper">
-                  <img
-                    src="/hero.png"
-                    alt={
-                      currentLanguage === "ko"
-                        ? "미국 비즈니스 컨설팅"
-                        : "US Business Consulting"
-                    }
-                    className="home-hero-image"
-                  />
+
+              <div className="home-hero-trust-bar">
+                <div className="home-hero-trust-item">
+                  <span className="home-hero-trust-number">15+</span>
+                  <span className="home-hero-trust-label">
+                    {currentLanguage === "ko" ? "년 경력" : "Years Experience"}
+                  </span>
+                </div>
+                <div className="home-hero-trust-divider"></div>
+                <div className="home-hero-trust-item">
+                  <span className="home-hero-trust-number">1000+</span>
+                  <span className="home-hero-trust-label">
+                    {currentLanguage === "ko" ? "고객사" : "Clients Served"}
+                  </span>
+                </div>
+                <div className="home-hero-trust-divider"></div>
+                <div className="home-hero-trust-item">
+                  <span className="home-hero-trust-number">6</span>
+                  <span className="home-hero-trust-label">
+                    {currentLanguage === "ko"
+                      ? "개 주 서비스"
+                      : "States Coverage"}
+                  </span>
                 </div>
               </div>
             </div>
