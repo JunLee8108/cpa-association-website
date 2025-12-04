@@ -156,7 +156,7 @@
   top: calc(100% + 10px);
   left: 50%;
   transform: translateX(-50%);
-  min-width: 200px;
+  min-width: 170px;
   background: white;
   border-radius: 12px;
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.12);

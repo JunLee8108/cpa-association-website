@@ -106,18 +106,24 @@ const Navbar = () => {
       path: "/services",
       dropdown: [
         {
-          label: t("nav.dropdown.incorporation"),
-          href: "#incorporation",
+          label: t("nav.dropdown.serviceOverview"),
+          href: "/services",
           path: "",
         },
-        { label: t("nav.dropdown.tax"), href: "#audit", path: "" },
-        { label: t("nav.dropdown.accounting"), href: "#cfo", path: "" },
-        { label: t("nav.dropdown.consulting"), href: "#payroll", path: "" },
-        { label: t("nav.dropdown.hr"), href: "#hr", path: "" },
-        { label: t("nav.dropdown.it"), href: "#it", path: "" },
+        {
+          label: t("nav.dropdown.ADP"),
+          href: "https://online.adp.com/signin/v1/?APPID=RUN&productId=80e309c3-70c3-bae1-e053-3505430b5495",
+          target: "_blank",
+          rel: "noopener noreferrer",
+        },
+        {
+          label: t("nav.dropdown.Xero"),
+          href: "https://www.xero.com/us/login",
+          target: "_blank",
+          rel: "noopener noreferrer",
+        },
       ],
     },
-    { label: t("nav.cases"), href: "#cases", path: "" },
     { label: t("nav.contact"), href: "", isButton: true, path: "/contact" },
   ];
 

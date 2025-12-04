@@ -17,17 +17,13 @@
   "nav": {
     "about": "About",
     "services": "Services",
-    "cases": "Success Stories",
     "contact": "Contact",
     "dropdown": {
       "team": "Our Team",
       "values": "Our Values",
-      "incorporation": "Business Formation",
-      "tax": "Tax Filing",
-      "accounting": "Accounting & Finance",
-      "consulting": "Business Consulting",
-      "hr": "HR & Payroll",
-      "it": "IT Solutions"
+      "serviceOverview": "Overview",
+      "ADP": "ADP Run",
+      "Xero": "Xero"
     }
   },
 
