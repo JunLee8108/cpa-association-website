@@ -26,7 +26,7 @@
 
 .home-hero-background-image {
   width: 100%;
-  max-width: 1400px;
+  max-width: 1200px;
   height: 100%;
   object-fit: fill;
   object-position: center;
@@ -60,22 +60,22 @@
 .home-hero-inner {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
   min-height: calc(100vh - 12rem);
 }
 
 /* Text Content */
 .home-hero-text-wrapper {
   max-width: 680px;
-  margin-top: var(--spacing-2xl);
+  margin-bottom: var(--spacing-4xl);
 }
 
 .home-hero-title {
-  font-size: clamp(2.75rem, 5.5vw, 4.2rem);
+  font-size: clamp(2.75rem, 5.5vw, 4rem);
   font-weight: var(--fw-bold);
   color: var(--white);
   line-height: 1.1;
-  margin-bottom: var(--spacing-lg);
+  margin-bottom: var(--spacing-md);
   letter-spacing: -0.03em;
 }
 
@@ -88,7 +88,7 @@
 }
 
 .home-hero-description {
-  font-size: var(--fs-xl);
+  font-size: var(--fs-2xl);
   line-height: var(--lh-relaxed);
   color: rgba(255, 255, 255, 0.85);
   margin-bottom: var(--spacing-xl);
@@ -140,11 +140,12 @@
 /* Trust Bar */
 .home-hero-trust-bar {
   display: flex;
+  position: absolute;
+  bottom: 5rem;
   align-items: center;
   gap: var(--spacing-2xl);
-  padding-top: var(--spacing-2xl);
+  padding-top: var(--spacing-lg);
   border-top: 1px solid rgba(255, 255, 255, 0.15);
-  margin-top: var(--spacing-xl);
 }
 
 .home-hero-trust-item {
