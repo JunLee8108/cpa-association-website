@@ -1,7 +1,7 @@
 {
   "common": {
     "companyName": "CPA Group",
-    "companyNameFull": "CPA Group USA",
+    "companyNameFull": "CHKby Advisory",
     "tagline": "Korean CPA Professional Group",
     "phone": "Phone",
     "email": "Email",
@@ -53,7 +53,7 @@
       "privacy": "Privacy Policy",
       "terms": "Terms of Service",
       "cookies": "Cookie Policy",
-      "copyright": "© {year} CPA Group USA. All rights reserved."
+      "copyright": "© {year} CHKby Advisory. All rights reserved."
     }
   },
 

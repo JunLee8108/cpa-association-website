@@ -5,34 +5,32 @@
 }
 
 /* ==================== Hero Section - Redesigned ==================== */
+/* ==================== Hero Section - 좌우 분할 버전 ==================== */
 .home-hero {
   position: relative;
   min-height: 100vh;
   display: flex;
   align-items: center;
+  background: var(--primary-navy);
+  overflow: hidden;
 }
 
-/* Full-bleed Background Image */
 .home-hero-background {
   position: absolute;
   top: 0;
-  left: 0;
-  display: flex;
-  justify-content: center;
-  width: 100%;
+  right: 0;
+  width: 55%;
   height: 100%;
   overflow: hidden;
 }
 
 .home-hero-background-image {
   width: 100%;
-  max-width: 1200px;
   height: 100%;
-  object-fit: fill;
+  object-fit: cover;
   object-position: center;
 }
 
-/* Cinematic Gradient Overlay */
 .home-hero-overlay {
   position: absolute;
   top: 0;
@@ -41,41 +39,39 @@
   height: 100%;
   background: linear-gradient(
     90deg,
-    rgba(26, 54, 93, 0.95) 0%,
-    rgba(26, 54, 93, 0.85) 30%,
-    rgba(26, 54, 93, 0.6) 60%,
-    rgba(26, 54, 93, 0.3) 100%
+    var(--primary-navy) 0%,
+    rgba(26, 54, 93, 0.8) 30%,
+    rgba(26, 54, 93, 0.4) 70%,
+    transparent 100%
   );
 }
 
-/* Content Container */
 .home-hero-content {
   position: relative;
   z-index: 2;
   width: 100%;
   padding: var(--spacing-3xl) 0;
-  padding-top: 9rem;
+  padding-top: 7rem;
 }
 
 .home-hero-inner {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
   min-height: calc(100vh - 12rem);
+  gap: var(--spacing-3xl);
 }
 
-/* Text Content */
 .home-hero-text-wrapper {
-  max-width: 680px;
-  margin-bottom: var(--spacing-4xl);
+  max-width: 600px;
 }
 
 .home-hero-title {
-  font-size: clamp(2.75rem, 5.5vw, 4rem);
+  font-size: clamp(2.5rem, 4.5vw, 4rem);
   font-weight: var(--fw-bold);
   color: var(--white);
   line-height: 1.1;
-  margin-bottom: var(--spacing-md);
+  margin-bottom: var(--spacing-lg);
   letter-spacing: -0.03em;
 }
 
@@ -88,18 +84,17 @@
 }
 
 .home-hero-description {
-  font-size: var(--fs-2xl);
+  font-size: var(--fs-xl);
   line-height: var(--lh-relaxed);
-  color: rgba(255, 255, 255, 0.85);
+  color: rgba(255, 255, 255, 0.9);
   margin-bottom: var(--spacing-xl);
-  max-width: 560px;
 }
 
-/* CTA Buttons */
 .home-hero-cta-wrapper {
   display: flex;
   gap: var(--spacing-md);
   flex-wrap: wrap;
+  margin-bottom: var(--spacing-2xl);
 }
 
 .home-hero-cta-primary {
@@ -126,7 +121,7 @@
   color: var(--white);
   font-size: var(--fs-base);
   font-weight: var(--fw-semibold);
-  border: 1.5px solid rgba(255, 255, 255, 0.4);
+  border: 2px solid rgba(255, 255, 255, 0.5);
   border-radius: var(--radius-md);
   transition: all var(--transition-base);
   cursor: pointer;
@@ -134,18 +129,15 @@
 
 .home-hero-cta-secondary:hover {
   background: rgba(255, 255, 255, 0.1);
-  border-color: rgba(255, 255, 255, 0.6);
+  border-color: rgba(255, 255, 255, 0.8);
 }
 
-/* Trust Bar */
 .home-hero-trust-bar {
   display: flex;
-  position: absolute;
-  bottom: 5rem;
   align-items: center;
-  gap: var(--spacing-2xl);
+  gap: var(--spacing-xl);
   padding-top: var(--spacing-lg);
-  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .home-hero-trust-item {
@@ -165,7 +157,7 @@
   font-size: var(--fs-sm);
   color: rgba(255, 255, 255, 0.7);
   line-height: var(--lh-snug);
-  max-width: 100px;
+  max-width: 80px;
 }
 
 .home-hero-trust-divider {
@@ -174,23 +166,32 @@
   background: rgba(255, 255, 255, 0.2);
 }
 
-/* ==================== Hero - Responsive Design ==================== */
+/* 오른쪽 영역 - 추가 비주얼 요소용 */
+.home-hero-visual {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+/* 플로팅 카드 스타일 (선택적) */
+.home-hero-floating-card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: var(--radius-xl);
+  padding: var(--spacing-lg);
+  color: var(--white);
+}
+
+/* ==================== Hero 좌우 분할 - Responsive ==================== */
 @media (max-width: 1024px) {
-  .home-hero-overlay {
-    background: linear-gradient(
-      90deg,
-      rgba(26, 54, 93, 0.95) 0%,
-      rgba(26, 54, 93, 0.8) 50%,
-      rgba(26, 54, 93, 0.7) 100%
-    );
+  .home-hero-inner {
+    grid-template-columns: 1.2fr 1fr;
   }
 
-  .home-hero-text-wrapper {
-    max-width: 600px;
-  }
-
-  .home-hero-trust-bar {
-    gap: var(--spacing-xl);
+  .home-hero-background {
+    width: 50%;
   }
 }
 
@@ -199,12 +200,18 @@
     min-height: 100svh;
   }
 
+  .home-hero-background {
+    width: 100%;
+    height: 50%;
+    top: 0;
+  }
+
   .home-hero-overlay {
     background: linear-gradient(
       180deg,
-      rgba(26, 54, 93, 0.7) 0%,
-      rgba(26, 54, 93, 0.9) 50%,
-      rgba(26, 54, 93, 0.95) 100%
+      rgba(26, 54, 93, 0.6) 0%,
+      rgba(26, 54, 93, 0.85) 40%,
+      var(--primary-navy) 70%
     );
   }
 
@@ -214,35 +221,32 @@
   }
 
   .home-hero-inner {
+    grid-template-columns: 1fr;
     min-height: calc(100svh - 10rem);
-    justify-content: flex-end;
+    align-content: end;
     padding-bottom: var(--spacing-xl);
   }
 
   .home-hero-text-wrapper {
-    margin-bottom: var(--spacing-xl);
+    max-width: 100%;
   }
 
   .home-hero-title {
     font-size: clamp(2rem, 8vw, 2.75rem);
-    margin-bottom: var(--spacing-md);
   }
 
   .home-hero-description {
     font-size: var(--fs-base);
-    margin-bottom: var(--spacing-lg);
   }
 
   .home-hero-cta-wrapper {
     flex-direction: column;
-    gap: var(--spacing-sm);
   }
 
   .home-hero-cta-primary,
   .home-hero-cta-secondary {
     width: 100%;
     text-align: center;
-    padding: var(--spacing-md) var(--spacing-lg);
   }
 
   .home-hero-trust-bar {
@@ -257,6 +261,10 @@
 
   .home-hero-trust-item {
     flex: 0 0 calc(50% - var(--spacing-md));
+  }
+
+  .home-hero-visual {
+    display: none;
   }
 }
 

@@ -163,6 +163,7 @@ const Home = () => {
   return (
     <div className="home-container">
       {/* Hero Section - 기존 코드를 이걸로 교체 */}
+      {/* Hero Section - 좌우 분할 버전 */}
       <section className="home-hero">
         <div className="home-hero-background">
           <img
@@ -180,6 +181,7 @@ const Home = () => {
         <div className="home-hero-content">
           <div className="container">
             <div className="home-hero-inner">
+              {/* 왼쪽: 텍스트 콘텐츠 */}
               <div className="home-hero-text-wrapper">
                 <h1 ref={heroSubtitleRef} className="home-hero-title fade-up">
                   {currentLanguage === "ko" ? (
@@ -224,31 +226,44 @@ const Home = () => {
                     {t("home.hero.cta.secondary")}
                   </button>
                 </div>
+
+                <div className="home-hero-trust-bar">
+                  <div className="home-hero-trust-item">
+                    <span className="home-hero-trust-number">15+</span>
+                    <span className="home-hero-trust-label">
+                      {currentLanguage === "ko"
+                        ? "년 경력"
+                        : "Years Experience"}
+                    </span>
+                  </div>
+                  <div className="home-hero-trust-divider"></div>
+                  <div className="home-hero-trust-item">
+                    <span className="home-hero-trust-number">1000+</span>
+                    <span className="home-hero-trust-label">
+                      {currentLanguage === "ko" ? "고객사" : "Clients Served"}
+                    </span>
+                  </div>
+                  <div className="home-hero-trust-divider"></div>
+                  <div className="home-hero-trust-item">
+                    <span className="home-hero-trust-number">6</span>
+                    <span className="home-hero-trust-label">
+                      {currentLanguage === "ko"
+                        ? "개 주 서비스"
+                        : "States Coverage"}
+                    </span>
+                  </div>
+                </div>
               </div>
 
-              <div className="home-hero-trust-bar">
-                <div className="home-hero-trust-item">
-                  <span className="home-hero-trust-number">15+</span>
-                  <span className="home-hero-trust-label">
-                    {currentLanguage === "ko" ? "년 경력" : "Years Experience"}
-                  </span>
-                </div>
-                <div className="home-hero-trust-divider"></div>
-                <div className="home-hero-trust-item">
-                  <span className="home-hero-trust-number">1000+</span>
-                  <span className="home-hero-trust-label">
-                    {currentLanguage === "ko" ? "고객사" : "Clients Served"}
-                  </span>
-                </div>
-                <div className="home-hero-trust-divider"></div>
-                <div className="home-hero-trust-item">
-                  <span className="home-hero-trust-number">6</span>
-                  <span className="home-hero-trust-label">
-                    {currentLanguage === "ko"
-                      ? "개 주 서비스"
-                      : "States Coverage"}
-                  </span>
-                </div>
+              {/* 오른쪽: 비주얼 영역 (선택적 - 플로팅 카드 등 추가 가능) */}
+              <div className="home-hero-visual">
+                {/* 
+            여기에 추가 비주얼 요소를 넣을 수 있어요:
+            - 플로팅 통계 카드
+            - 아이콘 그리드
+            - 고객 로고
+            등등
+          */}
               </div>
             </div>
           </div>
@@ -346,7 +361,6 @@ const Home = () => {
           </div>
         </div>
       </section>
-
       {/* Services Section */}
       <section className="home-services">
         <div className="container">
@@ -424,7 +438,6 @@ const Home = () => {
           </div>
         </div>
       </section>
-
       {/* Process Section */}
       <section className="home-process">
         <div className="container">
@@ -489,7 +502,6 @@ const Home = () => {
           </div>
         </div>
       </section>
-
       {/* Location Section */}
       <section className="home-location">
         <div className="container">
@@ -561,7 +573,6 @@ const Home = () => {
           </div>
         </div>
       </section>
-
       {/* Case Studies Section */}
       <section id="case" className="home-cases">
         <div className="container">
