@@ -9,7 +9,6 @@ const Navbar = () => {
   const navigate = useNavigate();
   const { pathname } = useLocation();
 
-  // 다국어 지원
   const { t, currentLanguage } = useTranslation();
   const { getCurrentLanguageInfo } = useLanguageStore();
 
@@ -24,13 +23,11 @@ const Navbar = () => {
   const languageDropdownRef = useRef(null);
   const hideDelay = 250;
 
-  // 언어 변경 시 브라우저 언어 초기화
   useEffect(() => {
     const { initializeLanguage } = useLanguageStore.getState();
     initializeLanguage();
   }, []);
 
-  // 스크롤 핸들러
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
@@ -62,7 +59,6 @@ const Navbar = () => {
     };
   }, []);
 
-  // 모바일 메뉴 열릴 때 스크롤 방지
   useEffect(() => {
     if (isMobileMenuOpen) {
       document.body.style.overflow = "hidden";
@@ -75,7 +71,6 @@ const Navbar = () => {
     };
   }, [isMobileMenuOpen]);
 
-  // 언어 드롭다운 외부 클릭 감지
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (
@@ -90,41 +85,33 @@ const Navbar = () => {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
-  // 동적으로 번역된 네비게이션 아이템
   const navItems = [
     {
       label: t("nav.about"),
       href: "#about",
       dropdown: [
-        { label: t("nav.dropdown.team"), href: "#team", path: "" },
-        { label: t("nav.dropdown.values"), href: "#values", path: "" },
+        { label: t("nav.dropdown.team"), path: "/team" },
+        { label: t("nav.dropdown.values"), href: "#values" },
       ],
     },
     {
       label: t("nav.services"),
-      href: "",
       path: "/services",
       dropdown: [
-        {
-          label: t("nav.dropdown.serviceOverview"),
-          href: "/services",
-          path: "",
-        },
+        { label: t("nav.dropdown.serviceOverview"), path: "/services" },
         {
           label: t("nav.dropdown.ADP"),
           href: "https://online.adp.com/signin/v1/?APPID=RUN&productId=80e309c3-70c3-bae1-e053-3505430b5495",
-          target: "_blank",
-          rel: "noopener noreferrer",
+          external: true,
         },
         {
           label: t("nav.dropdown.Xero"),
           href: "https://www.xero.com/us/login",
-          target: "_blank",
-          rel: "noopener noreferrer",
+          external: true,
         },
       ],
     },
-    { label: t("nav.contact"), href: "", isButton: true, path: "/contact" },
+    { label: t("nav.contact"), isButton: true, path: "/contact" },
   ];
 
   const handleMobileMenuToggle = () => {
@@ -133,8 +120,18 @@ const Navbar = () => {
 
   const handleNavigation = (path) => {
     setIsMobileMenuOpen(false);
+    setActiveDropdown(null);
     if (pathname === path) return;
     navigate(path);
+  };
+
+  const handleDropdownClick = (dropItem, e) => {
+    if (dropItem.external) {
+      window.open(dropItem.href, "_blank", "noopener,noreferrer");
+    } else if (dropItem.path) {
+      e.preventDefault();
+      handleNavigation(dropItem.path);
+    }
   };
 
   const handleLanguageChange = (lang) => {
@@ -166,7 +163,7 @@ const Navbar = () => {
         {/* Desktop Navigation */}
         <div className="navbar-desktop">
           <ul className="navbar-menu">
-            {/* Language Selector - Desktop */}
+            {/* Language Selector */}
             <li
               className="navbar-menu-item language-selector-wrapper"
               ref={languageDropdownRef}
@@ -231,7 +228,7 @@ const Navbar = () => {
                 ) : (
                   <>
                     <a
-                      onClick={() => handleNavigation(item.path)}
+                      onClick={() => item.path && handleNavigation(item.path)}
                       className="navbar-menu-link"
                     >
                       {item.label}
@@ -253,11 +250,9 @@ const Navbar = () => {
                         {item.dropdown.map((dropItem, dropIndex) => (
                           <a
                             key={dropIndex}
-                            href={dropItem.href}
+                            href={dropItem.href || "#"}
                             className="navbar-dropdown-item"
-                            onClick={() =>
-                              dropItem.path && handleNavigation(dropItem.path)
-                            }
+                            onClick={(e) => handleDropdownClick(dropItem, e)}
                           >
                             {dropItem.label}
                           </a>
@@ -340,9 +335,9 @@ const Navbar = () => {
                       {item.dropdown.map((dropItem, dropIndex) => (
                         <a
                           key={dropIndex}
-                          href={dropItem.href}
+                          href={dropItem.href || "#"}
                           className="navbar-mobile-dropdown-item"
-                          onClick={() => handleNavigation(item.path)}
+                          onClick={(e) => handleDropdownClick(dropItem, e)}
                         >
                           {dropItem.label}
                         </a>
