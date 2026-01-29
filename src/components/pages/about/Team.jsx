@@ -92,6 +92,25 @@ const Team = () => {
         },
       ],
     },
+    {
+      id: 4,
+      name: "Sanghoon (Lucas) Huh, CPA",
+      image: "/team-4.jpg",
+      description:
+        currentLanguage === "ko"
+          ? "Sanghoon은 2004년 7월 Sanghoon Huh CPA Consulting, PC를 설립하여 개인 및 소규모 비즈니스를 위한 전문 세무 계획, 종합 세무 신고, 회계, 부기, 급여, 재무 비즈니스 관리 및 QuickBooks 컨설팅 서비스를 제공하고 있습니다."
+          : "Sanghoon founded Sanghoon Huh CPA Consulting, PC in July 2004 and specializes in providing professional tax planning, full-service tax preparation, accounting, bookkeeping, payroll, financial business management, and QuickBooks consulting for individuals and small businesses.",
+      credentials: [
+        { icon: Award, text: "AICPA & PICPA Member" },
+        { icon: Award, text: "Tennessee CPA License" },
+      ],
+      education: [
+        {
+          school: currentLanguage === "ko" ? "연세대학교" : "Yonsei University",
+          location: currentLanguage === "ko" ? "한국" : "South Korea",
+        },
+      ],
+    },
   ];
 
   const coverageAreas = [
@@ -147,7 +166,7 @@ const Team = () => {
 
     const observer = new IntersectionObserver(
       handleIntersection,
-      observerOptions
+      observerOptions,
     );
 
     if (heroRef.current) observer.observe(heroRef.current);
